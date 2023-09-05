@@ -58,7 +58,7 @@ def get_density_in_recorder_area():
     return (
         get_density_in_burrow_area()
         * get_call_rate_in_recorder_area(recorder_data_path)
-        / get_call_rate_in_burrow_area()
+        / xxget_call_rate_in_burrow_area(recorder_data_path)
     )
 
 
