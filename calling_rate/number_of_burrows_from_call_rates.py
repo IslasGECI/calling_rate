@@ -52,7 +52,7 @@ def get_call_rate_in_recorder_area(recorder_data_path):
 
 
 def get_density_in_recorder_area(recorder_data_path, burrow_geci_data_path, burrow_jm_data_path):
-    paths = {"recorders_data": recorder_data_path}
+    paths = {"recorders_data": recorder_data_path, "geci_data": burrow_geci_data_path}
     return xxget_density_in_recorder_area(burrow_geci_data_path, burrow_jm_data_path, paths)
 
 
