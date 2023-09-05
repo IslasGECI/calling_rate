@@ -42,7 +42,10 @@ def _get_burrow_polygon():
 
 def is_inside_burrow_area(recorder_data_path):
     recorder_coordinates = get_recorder_coordinates(recorder_data_path)
-    return path.Path(_get_burrow_polygon()).contains_points(recorder_coordinates)
+    burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
+    burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
+    burrow_polygon = _xxget_burrow_polygon(burrow_geci_data_path, burrow_jm_data_path)
+    return path.Path(burrow_polygon).contains_points(recorder_coordinates)
 
 
 def get_call_rate_in_burrow_area(recorder_data_path):
