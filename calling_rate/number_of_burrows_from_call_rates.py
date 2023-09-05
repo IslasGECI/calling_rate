@@ -77,6 +77,11 @@ def get_number_of_recorders():
     return number_of_recorders
 
 
+def xxget_number_of_recorders(recorder_data_path):
+    number_of_recorders = pd.read_csv(recorder_data_path).shape[0]
+    return number_of_recorders
+
+
 def get_recorder_area():
     recorder_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion.csv"
     return get_number_of_recorders() * get_area_for_each_recorder(recorder_data_path)
