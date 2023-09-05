@@ -7,8 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.4.0] - 2023-08-31
-
 ### Added
 
 ### Fixed
@@ -17,6 +15,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+## [0.2.0] - 2023-09-05
 
-[unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.1.1...HEAD
-[0.0.1]: https://github.com/olivierlacan/keep-a-changelog/releases/tag/v0.0.1
+### Changed
+
+- Add paths arguments 
+
+## [0.1.0] - 2023-09-05
+
+[unreleased]: https://github.com/IslasGECI/calling_rate/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/IslasGECI/calling_rate/compare/v0.1.0...v0.2.0
+[0.1.0]: https://github.com/IslasGECI/calling_rate/compare/init...v0.1.0
