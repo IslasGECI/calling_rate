@@ -32,14 +32,14 @@ def _get_burrow_polygon():
     return burrow_points.iloc[hull.vertices, :]
 
 
-def xxis_inside_burrow_area(recorder_data_path):
+def is_inside_burrow_area(recorder_data_path):
     recorder_coordinates = get_recorder_coordinates(recorder_data_path)
     return path.Path(_get_burrow_polygon()).contains_points(recorder_coordinates)
 
 
 def get_call_rate_in_burrow_area():
     recorder_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion.csv"
-    is_recorder_inside = xxis_inside_burrow_area(recorder_data_path)
+    is_recorder_inside = is_inside_burrow_area(recorder_data_path)
     recorder_data = pd.read_csv(recorder_data_path)
     return recorder_data.loc[is_recorder_inside, "Tasa_Voc"].mean()
 
