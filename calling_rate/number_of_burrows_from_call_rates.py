@@ -39,8 +39,7 @@ def xxis_inside_burrow_area(recorder_data_path):
 
 def is_inside_burrow_area():
     recorder_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion.csv"
-    recorder_coordinates = get_recorder_coordinates(recorder_data_path)
-    return path.Path(_get_burrow_polygon()).contains_points(recorder_coordinates)
+    return xxis_inside_burrow_area(recorder_data_path)
 
 
 def get_call_rate_in_burrow_area():
