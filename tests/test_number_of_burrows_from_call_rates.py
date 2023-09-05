@@ -2,7 +2,6 @@ import pytest
 from calling_rate import (
     get_area_for_each_recorder,
     get_call_rate_in_burrow_area,
-    get_call_rate_in_recorder_area,
     xxget_call_rate_in_recorder_area,
     get_density_in_burrow_area,
     get_density_in_recorder_area,
