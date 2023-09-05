@@ -55,9 +55,10 @@ def get_call_rate_in_recorder_area():
 
 
 def get_density_in_recorder_area():
+    recorder_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion.csv"
     return (
         get_density_in_burrow_area()
-        * get_call_rate_in_recorder_area()
+        * xxget_call_rate_in_recorder_area(recorder_data_path)
         / get_call_rate_in_burrow_area()
     )
 
