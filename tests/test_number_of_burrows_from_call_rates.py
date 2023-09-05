@@ -1,6 +1,7 @@
 import pytest
 from calling_rate import (
     get_area_for_each_recorder,
+    xxget_area_for_each_recorder,
     get_call_rate_in_burrow_area,
     get_call_rate_in_recorder_area,
     get_density_in_burrow_area,
@@ -58,7 +59,8 @@ def test_get_density_in_recorder_area():
 # Calcula el area de las grabadoras (A=n·dA)
 def test_get_area_for_each_recorder():
     expected_area = 300 * 300
-    obtained_area = get_area_for_each_recorder()
+    recorder_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion.csv"
+    obtained_area = xxget_area_for_each_recorder(recorder_data_path)
     assert obtained_area == expected_area
 
 
