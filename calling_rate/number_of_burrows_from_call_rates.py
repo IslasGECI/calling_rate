@@ -64,7 +64,7 @@ def get_recorder_coordinates(recorder_data_path):
     return pd.read_csv(recorder_data_path).loc[:, ["Coordenada_X", "Coordenada_Y"]]
 
 
-def xxget_area_for_each_recorder(recorder_data_path):
+def get_area_for_each_recorder(recorder_data_path):
     recorder_data = pd.read_csv(recorder_data_path)
     dx = np.median(np.diff(recorder_data["Coordenada_X"].sort_values().unique()))
     dy = np.median(np.diff(recorder_data["Coordenada_Y"].sort_values().unique()))
@@ -79,7 +79,7 @@ def get_number_of_recorders():
 
 def get_recorder_area():
     recorder_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion.csv"
-    return get_number_of_recorders() * xxget_area_for_each_recorder(recorder_data_path)
+    return get_number_of_recorders() * get_area_for_each_recorder(recorder_data_path)
 
 
 def get_number_of_burrows_in_recorder_area():
