@@ -20,12 +20,6 @@ def _get_burrow_area(burrow_geci_data_path, burrow_jm_data_path):
     return ConvexHull(burrow_points).volume
 
 
-def get_density_in_burrow_area():
-    burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
-    burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
-    return xxget_density_in_burrow_area(burrow_geci_data_path, burrow_jm_data_path)
-
-
 def xxget_density_in_burrow_area(burrow_geci_data_path, burrow_jm_data_path):
     return _get_number_of_burrows_in_burrow_area(
         burrow_geci_data_path, burrow_jm_data_path
