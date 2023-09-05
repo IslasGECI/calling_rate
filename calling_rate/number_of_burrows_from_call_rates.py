@@ -43,7 +43,8 @@ def is_inside_burrow_area():
 
 
 def get_call_rate_in_burrow_area():
-    is_recorder_inside = is_inside_burrow_area()
+    recorder_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion.csv"
+    is_recorder_inside = xxis_inside_burrow_area(recorder_data_path)
     recorder_data = pd.read_csv(recorder_data_path)
     return recorder_data.loc[is_recorder_inside, "Tasa_Voc"].mean()
 
