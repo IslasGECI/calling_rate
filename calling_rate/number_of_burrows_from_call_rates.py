@@ -29,7 +29,12 @@ def _get_burrow_area():
 
 
 def get_density_in_burrow_area():
-    return _get_number_of_burrows_in_burrow_area() / _get_burrow_area()
+    burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
+    burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
+    return (
+        _xxget_number_of_burrows_in_burrow_area(burrow_geci_data_path, burrow_jm_data_path)
+        / _get_burrow_area()
+    )
 
 
 def _get_burrow_polygon():
