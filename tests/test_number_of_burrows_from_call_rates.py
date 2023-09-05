@@ -7,6 +7,7 @@ from calling_rate import (
     get_density_in_recorder_area,
     get_number_of_burrows_in_recorder_area,
     get_number_of_recorders,
+    xxget_number_of_recorders,
     get_recorder_area,
     get_recorder_coordinates,
     is_inside_burrow_area,
@@ -65,7 +66,8 @@ def test_get_area_for_each_recorder():
 
 def test_get_number_of_recorders():
     expected_n_recorders = 80
-    obtained_n_recorders = get_number_of_recorders()
+    recorder_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion.csv"
+    obtained_n_recorders = xxget_number_of_recorders(recorder_data_path)
     assert obtained_n_recorders == expected_n_recorders
 
 
