@@ -12,6 +12,7 @@ module = "calling_rate"
 requires = [
     "matplotlib",
     "pandas",
+    "pandas-stubs",
     "scipy",
 ]
 requires-python=">=3.9"
