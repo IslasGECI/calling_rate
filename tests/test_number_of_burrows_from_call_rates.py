@@ -21,9 +21,11 @@ def test_get_density_in_burrow_area():
     assert obtained_density == expected_density
 
 
+recorder_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion.csv"
+
+
 # Lee los datos de tasas de vocalización
 def test_get_recorder_coordinates():
-    recorder_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion.csv"
     expected_n_recorders = 80
     obtained_n_recorders = get_recorder_coordinates(recorder_data_path).shape[0]
     assert obtained_n_recorders == expected_n_recorders
@@ -59,14 +61,12 @@ def test_get_density_in_recorder_area():
 # Calcula el area de las grabadoras (A=n·dA)
 def test_get_area_for_each_recorder():
     expected_area = 300 * 300
-    recorder_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion.csv"
     obtained_area = get_area_for_each_recorder(recorder_data_path)
     assert obtained_area == expected_area
 
 
 def test_get_number_of_recorders():
     expected_n_recorders = 80
-    recorder_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion.csv"
     obtained_n_recorders = xxget_number_of_recorders(recorder_data_path)
     assert obtained_n_recorders == expected_n_recorders
 
