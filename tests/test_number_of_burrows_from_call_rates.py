@@ -8,7 +8,6 @@ from calling_rate import (
     get_number_of_burrows_in_recorder_area,
     get_number_of_recorders,
     get_recorder_area,
-    get_recorder_coordinates,
     XXget_recorder_coordinates,
     is_inside_burrow_area,
 )

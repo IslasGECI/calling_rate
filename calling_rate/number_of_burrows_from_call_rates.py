@@ -33,7 +33,8 @@ def _get_burrow_polygon():
 
 
 def is_inside_burrow_area():
-    return path.Path(_get_burrow_polygon()).contains_points(get_recorder_coordinates())
+    recorder_coordinates = get_recorder_coordinates()
+    return path.Path(_get_burrow_polygon()).contains_points(recorder_coordinates)
 
 
 def get_call_rate_in_burrow_area():
