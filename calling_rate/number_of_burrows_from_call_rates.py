@@ -58,7 +58,7 @@ def get_density_in_recorder_area(recorder_data_path, burrow_geci_data_path, burr
 
 def xxget_density_in_recorder_area(burrow_geci_data_path, burrow_jm_data_path, paths):
     return (
-        get_density_in_burrow_area(burrow_geci_data_path, burrow_jm_data_path)
+        get_density_in_burrow_area(paths["geci_data"], burrow_jm_data_path)
         * get_call_rate_in_recorder_area(paths["recorders_data"])
         / get_call_rate_in_burrow_area(paths["recorders_data"])
     )
