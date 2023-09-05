@@ -6,7 +6,6 @@ from calling_rate import (
     get_density_in_burrow_area,
     get_density_in_recorder_area,
     get_number_of_burrows_in_recorder_area,
-    get_number_of_recorders,
     xxget_number_of_recorders,
     get_recorder_area,
     get_recorder_coordinates,
