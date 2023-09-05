@@ -94,6 +94,9 @@ def get_recorder_area(recorder_data_path):
 def get_number_of_burrows_in_recorder_area(
     recorder_data_path, burrow_geci_data_path, burrow_jm_data_path
 ):
-    return get_density_in_recorder_area(
-        recorder_data_path, burrow_geci_data_path, burrow_jm_data_path
-    ) * get_recorder_area(recorder_data_path)
+    paths = {
+        "recorders_data": recorder_data_path,
+        "geci_data": burrow_geci_data_path,
+        "jm_data": burrow_jm_data_path,
+    }
+    return xxget_density_in_recorder_area(paths) * get_recorder_area(recorder_data_path)
