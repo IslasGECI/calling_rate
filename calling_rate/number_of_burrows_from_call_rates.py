@@ -34,7 +34,7 @@ def _get_burrow_polygon():
 
 def is_inside_burrow_area():
     recorder_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion.csv"
-    recorder_coordinates = XXget_recorder_coordinates(recorder_data_path)
+    recorder_coordinates = get_recorder_coordinates(recorder_data_path)
     return path.Path(_get_burrow_polygon()).contains_points(recorder_coordinates)
 
 
@@ -60,7 +60,7 @@ def get_density_in_recorder_area():
 recorder_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion.csv"
 
 
-def XXget_recorder_coordinates(recorder_data_path):
+def get_recorder_coordinates(recorder_data_path):
     return pd.read_csv(recorder_data_path).loc[:, ["Coordenada_X", "Coordenada_Y"]]
 
 
