@@ -28,6 +28,12 @@ def get_density_in_burrow_area():
     ) / _get_burrow_area(burrow_geci_data_path, burrow_jm_data_path)
 
 
+def _xxget_burrow_polygon(burrow_geci_data_path, burrow_jm_data_path):
+    burrow_points = _get_burrow_coordinates(burrow_geci_data_path, burrow_jm_data_path)
+    hull = ConvexHull(burrow_points)
+    return burrow_points.iloc[hull.vertices, :]
+
+
 def _get_burrow_polygon():
     burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
     burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
