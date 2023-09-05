@@ -15,12 +15,6 @@ def _xxget_number_of_burrows_in_burrow_area(burrow_geci_data_path, burrow_jm_dat
     return _get_burrow_coordinates(burrow_geci_data_path, burrow_jm_data_path).shape[0]
 
 
-def _get_number_of_burrows_in_burrow_area():
-    burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
-    burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
-    return _xxget_number_of_burrows_in_burrow_area(burrow_geci_data_path, burrow_jm_data_path)
-
-
 def _get_burrow_area():
     burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
     burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
