@@ -59,14 +59,6 @@ def xxget_density_in_recorder_area(recorder_data_path, burrow_geci_data_path, bu
     )
 
 
-def get_density_in_recorder_area(recorder_data_path):
-    burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
-    burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
-    return xxget_density_in_recorder_area(
-        recorder_data_path, burrow_geci_data_path, burrow_jm_data_path
-    )
-
-
 def get_recorder_coordinates(recorder_data_path):
     return pd.read_csv(recorder_data_path).loc[:, ["Coordenada_X", "Coordenada_Y"]]
 
