@@ -83,7 +83,8 @@ def get_number_of_recorders():
 
 
 def get_recorder_area():
-    return get_number_of_recorders() * get_area_for_each_recorder()
+    recorder_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion.csv"
+    return get_number_of_recorders() * xxget_area_for_each_recorder(recorder_data_path)
 
 
 def get_number_of_burrows_in_recorder_area():
