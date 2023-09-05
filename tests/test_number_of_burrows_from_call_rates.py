@@ -101,7 +101,10 @@ def test_get_number_of_burrows_in_recorder_area():
 
     assert pytest.approx(obtained_number_of_burrows, 0.1) == expected_number_of_burrows
     new_recorders_path = "tests/data/puntos_grabaciones_estimacion_poblacion_nuevos.csv"
-    obtained_number_of_burrows = get_number_of_burrows_in_recorder_area(
-        new_recorders_path, burrow_geci_data_path, burrow_jm_data_path
-    )
+    paths = {
+        "recorders_data": new_recorders_path,
+        "geci_data": burrow_geci_data_path,
+        "jm_data": burrow_jm_data_path,
+    }
+    obtained_number_of_burrows = xxget_number_of_burrows_in_recorder_area(paths)
     assert pytest.approx(obtained_number_of_burrows, 0.1) == 350
