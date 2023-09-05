@@ -37,9 +37,7 @@ def _xxget_burrow_polygon(burrow_geci_data_path, burrow_jm_data_path):
 def _get_burrow_polygon():
     burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
     burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
-    burrow_points = _get_burrow_coordinates(burrow_geci_data_path, burrow_jm_data_path)
-    hull = ConvexHull(burrow_points)
-    return burrow_points.iloc[hull.vertices, :]
+    return _xxget_burrow_polygon(burrow_geci_data_path, burrow_jm_data_path)
 
 
 def is_inside_burrow_area(recorder_data_path):
