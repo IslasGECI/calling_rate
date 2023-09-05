@@ -44,7 +44,7 @@ def get_call_rate_in_burrow_area():
     return recorder_data.loc[is_recorder_inside, "Tasa_Voc"].mean()
 
 
-def xxget_call_rate_in_recorder_area(recorder_data_path):
+def get_call_rate_in_recorder_area(recorder_data_path):
     recorder_data = pd.read_csv(recorder_data_path)
     return recorder_data["Tasa_Voc"].mean()
 
@@ -53,7 +53,7 @@ def get_density_in_recorder_area():
     recorder_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion.csv"
     return (
         get_density_in_burrow_area()
-        * xxget_call_rate_in_recorder_area(recorder_data_path)
+        * get_call_rate_in_recorder_area(recorder_data_path)
         / get_call_rate_in_burrow_area()
     )
 
