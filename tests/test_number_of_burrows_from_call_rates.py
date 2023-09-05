@@ -3,7 +3,7 @@ from calling_rate import (
     get_area_for_each_recorder,
     get_call_rate_in_burrow_area,
     get_call_rate_in_recorder_area,
-    xxget_density_in_burrow_area,
+    get_density_in_burrow_area,
     get_density_in_recorder_area,
     get_number_of_burrows_in_recorder_area,
     get_number_of_recorders,
@@ -18,7 +18,7 @@ def test_get_density_in_burrow_area():
     expected_density = 3.559479030607237e-5
     burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
     burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
-    obtained_density = xxget_density_in_burrow_area(burrow_geci_data_path, burrow_jm_data_path)
+    obtained_density = get_density_in_burrow_area(burrow_geci_data_path, burrow_jm_data_path)
     assert obtained_density == expected_density
 
 
