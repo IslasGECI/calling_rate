@@ -65,14 +65,11 @@ def get_recorder_coordinates(recorder_data_path):
 
 
 def get_area_for_each_recorder():
-    recorder_data = pd.read_csv(recorder_data_path)
-    dx = np.median(np.diff(recorder_data["Coordenada_X"].sort_values().unique()))
-    dy = np.median(np.diff(recorder_data["Coordenada_Y"].sort_values().unique()))
-    dA = dx * dy
-    return dA
+    recorder_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion.csv"
+    return xxget_area_for_each_recorder(recorder_data_path)
 
 
-def xxget_area_for_each_recorder():
+def xxget_area_for_each_recorder(recorder_data_path):
     recorder_data = pd.read_csv(recorder_data_path)
     dx = np.median(np.diff(recorder_data["Coordenada_X"].sort_values().unique()))
     dy = np.median(np.diff(recorder_data["Coordenada_Y"].sort_values().unique()))
