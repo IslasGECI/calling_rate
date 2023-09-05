@@ -77,11 +77,6 @@ def get_number_of_recorders(recorder_data_path):
     return number_of_recorders
 
 
-def get_recorder_area():
-    recorder_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion.csv"
-    return xxget_recorder_area(recorder_data_path)
-
-
 def xxget_recorder_area(recorder_data_path):
     return get_number_of_recorders(recorder_data_path) * get_area_for_each_recorder(
         recorder_data_path
