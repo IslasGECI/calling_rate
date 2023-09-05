@@ -82,5 +82,5 @@ def get_recorder_area(recorder_data_path):
     )
 
 
-def xxget_number_of_burrows_in_recorder_area(paths):
+def get_number_of_burrows_in_recorder_area(paths):
     return get_density_in_recorder_area(paths) * get_recorder_area(paths["recorders_data"])
