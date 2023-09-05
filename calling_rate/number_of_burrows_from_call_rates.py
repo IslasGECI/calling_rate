@@ -72,6 +72,14 @@ def get_area_for_each_recorder():
     return dA
 
 
+def xxget_area_for_each_recorder():
+    recorder_data = pd.read_csv(recorder_data_path)
+    dx = np.median(np.diff(recorder_data["Coordenada_X"].sort_values().unique()))
+    dy = np.median(np.diff(recorder_data["Coordenada_Y"].sort_values().unique()))
+    dA = dx * dy
+    return dA
+
+
 def get_number_of_recorders():
     number_of_recorders = pd.read_csv(recorder_data_path).shape[0]
     return number_of_recorders
