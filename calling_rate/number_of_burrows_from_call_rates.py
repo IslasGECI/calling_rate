@@ -5,7 +5,6 @@ import pandas as pd
 
 
 def _xxget_burrow_coordinates(burrow_geci_data_path):
-    burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
     burrow_geci_data = pd.read_csv(burrow_geci_data_path)
     burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
     burrow_jm_data = pd.read_csv(burrow_jm_data_path)
