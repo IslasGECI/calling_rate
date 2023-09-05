@@ -86,3 +86,7 @@ def get_recorder_area(recorder_data_path):
 def get_number_of_burrows_in_recorder_area():
     recorder_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion.csv"
     return get_density_in_recorder_area() * get_recorder_area(recorder_data_path)
+
+
+def xxget_number_of_burrows_in_recorder_area(recorder_data_path):
+    return get_density_in_recorder_area() * get_recorder_area(recorder_data_path)
