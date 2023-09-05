@@ -6,6 +6,7 @@ from calling_rate import (
     get_density_in_burrow_area,
     get_density_in_recorder_area,
     get_number_of_burrows_in_recorder_area,
+    xxget_number_of_burrows_in_recorder_area,
     get_number_of_recorders,
     get_recorder_area,
     get_recorder_coordinates,
@@ -90,9 +91,14 @@ def test_get_number_of_burrows_in_recorder_area():
     expected_number_of_burrows = 175
     burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
     burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
-    obtained_number_of_burrows = get_number_of_burrows_in_recorder_area(
-        recorder_data_path, burrow_geci_data_path, burrow_jm_data_path
-    )
+    paths = {
+        "recorders_data": recorder_data_path,
+        "geci_data": burrow_geci_data_path,
+        "jm_data": burrow_jm_data_path,
+    }
+
+    obtained_number_of_burrows = xxget_number_of_burrows_in_recorder_area(paths)
+
     assert pytest.approx(obtained_number_of_burrows, 0.1) == expected_number_of_burrows
     new_recorders_path = "tests/data/puntos_grabaciones_estimacion_poblacion_nuevos.csv"
     obtained_number_of_burrows = get_number_of_burrows_in_recorder_area(
