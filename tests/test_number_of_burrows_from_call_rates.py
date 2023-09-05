@@ -9,7 +9,7 @@ from calling_rate import (
     get_number_of_recorders,
     get_recorder_area,
     get_recorder_coordinates,
-    is_inside_burrow_area,
+    xxis_inside_burrow_area,
 )
 
 
@@ -33,7 +33,7 @@ def test_get_recorder_coordinates():
 # Calcula el promedio de tasas de vocalización (v) dentro de la envolvente
 def test_is_inside_burrow_area():
     expected_inside = 10
-    obtained_inside = sum(is_inside_burrow_area())
+    obtained_inside = sum(xxis_inside_burrow_area(recorder_data_path))
     assert obtained_inside == expected_inside
 
 
