@@ -62,6 +62,10 @@ def get_recorder_coordinates():
     return pd.read_csv(recorder_data_path).loc[:, ["Coordenada_X", "Coordenada_Y"]]
 
 
+def XXget_recorder_coordinates():
+    return pd.read_csv(recorder_data_path).loc[:, ["Coordenada_X", "Coordenada_Y"]]
+
+
 def get_area_for_each_recorder():
     recorder_data = pd.read_csv(recorder_data_path)
     dx = np.median(np.diff(recorder_data["Coordenada_X"].sort_values().unique()))
