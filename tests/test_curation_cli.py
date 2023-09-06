@@ -10,6 +10,6 @@ def tests_curator():
     assert result.exit_code == 0
 
     shp_path = "tests/data/nuevos_puntos_estimacion_poblacion2023.shp"
-    output_path = "tests/data/recorder_coordinates.csv"
-    result = runner.invoke(curator, "run", "--shp-path", shp_path, "--output-path", output_path)
+    output_path = "tests/data/recording_coordinates.csv"
+    result = runner.invoke(curator, ["write-recording-coordinates", shp_path, output_path])
     assert result.exit_code == 0
