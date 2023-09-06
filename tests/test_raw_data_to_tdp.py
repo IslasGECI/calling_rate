@@ -10,4 +10,3 @@ def test_shp_files_to_geojson():
         os.remove(geojson_path)
     shp_files_to_geojson(raw_path, geojson_path)
     assert os.path.exists(geojson_path)
-    os.remove(geojson_path)
