@@ -1,4 +1,9 @@
-from calling_rate import shp_files_to_geojson, geojson_to_id_table, get_recording_coordinates
+from calling_rate import (
+    shp_files_to_geojson,
+    geojson_to_id_table,
+    get_recording_coordinates,
+    geojson_to_records_by_season_table,
+)
 
 import os
 
@@ -14,13 +19,20 @@ def test_shp_files_to_geojson():
     os.remove(geojson_path)
 
 
+geojson_path = "tests/data/geojson_for_tests.geojson"
+
+
 def tests_geojson_to_id_table():
-    obtained = geojson_to_id_table("tests/data/geojson_for_tests.geojson")
+    obtained = geojson_to_id_table(geojson_path)
     obtained_columns = obtained.columns
     expected_columns = ["id", "X", "Y"]
     assert (obtained_columns == expected_columns).all()
     assert obtained.loc[1, "X"] == 502056.092813999974169
     assert obtained.loc[1, "Y"] == 2080525.00618
+
+
+def test_geojson_to_records_by_season_table():
+    geojson_to_records_by_season_table(geojson_path)
 
 
 def test_get_recording_coordinates():
