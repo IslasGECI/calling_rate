@@ -14,8 +14,7 @@ def get_recording_data(shp_path):
     return recording_data_df
 
 
-def write_geojson_from_shp(shp_path):
-    geojson_path = "tmp.geojson"
+def write_geojson_from_shp(shp_path, geojson_path="tmp.geojson"):
     shp_files_to_geojson(shp_path, geojson_path)
 
 
