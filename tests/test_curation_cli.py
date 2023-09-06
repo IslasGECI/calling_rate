@@ -11,6 +11,7 @@ runner = CliRunner()
 def tests_curator():
     result = runner.invoke(curator, "--help")
     assert result.exit_code == 0
+    assert "Tools to clean calling rates data  " in result.stdout
 
     shp_path = "tests/data/nuevos_puntos_estimacion_poblacion2023.shp"
     output_path = "tests/data/recording_coordinates.csv"
