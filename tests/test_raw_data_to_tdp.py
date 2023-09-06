@@ -19,3 +19,4 @@ def tests_geojson_to_id_table():
     expected_columns = ["id", "X", "Y"]
     assert (obtained_columns == expected_columns).all()
     assert obtained.loc[1, "X"] == 502056.092813999974169
+    assert obtained.loc[1, "Y"] == 2080525.00618
