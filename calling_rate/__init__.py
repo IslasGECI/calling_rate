@@ -2,3 +2,4 @@
 
 __version__ = "0.2.0"
 from .number_of_burrows_from_call_rates import *  # noqa
+from .raw_data_to_tdp import *  # noqa
