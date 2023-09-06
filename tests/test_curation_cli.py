@@ -27,3 +27,13 @@ def tests_curator():
 
     result = runner.invoke(curator, "version")
     assert "0.2.0" in result.stdout
+
+    recording_data_path = "tests/data/record_status_by_season.csv"
+    if os.path.exists(recording_data_path):
+        os.remove(recording_data_path)
+    result = runner.invoke(curator, ["write-recording-data", shp_path, recording_data_path])
+    assert result.exit_code == 0
+    assert os.path.exists(recording_data_path)
+    output_df = pd.read_csv(recording_data_path)
+    assert output_df.shape[1] == 6
+    os.remove(recording_data_path)
