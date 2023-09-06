@@ -10,9 +10,11 @@ description-file = "README.md"
 home-page = "https://github.com/IslasGECI/calling_rate"
 module = "calling_rate"
 requires = [
+    "geopandas",
     "matplotlib",
-    "pandas",
     "pandas-stubs",
+    "pandas",
     "scipy",
+    "typer[all]",
 ]
 requires-python=">=3.9"
