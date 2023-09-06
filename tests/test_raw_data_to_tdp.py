@@ -1,11 +1,11 @@
-from calling_rate import shp_files_to_geojson
+from calling_rate import shp_files_to_geojson, geojson_to_id_table
 
 import os
 
 
 def test_shp_files_to_geojson():
     raw_path = "tests/data/nuevos_puntos_estimacion_poblacion2023.shp"
-    geojson_path = "tests/data/geojson_from_shp.json"
+    geojson_path = "tests/data/geojson_from_shp.geojson"
     if os.path.exists(geojson_path):
         os.remove(geojson_path)
     shp_files_to_geojson(raw_path, geojson_path)
@@ -14,4 +14,4 @@ def test_shp_files_to_geojson():
 
 
 def tests_geojson_to_id_table():
-    obtained = geojson_to_id_table("tests/data/geojson_for_tests.json")
+    obtained = geojson_to_id_table("tests/data/geojson_for_tests.geojson")
