@@ -15,3 +15,6 @@ def test_shp_files_to_geojson():
 
 def tests_geojson_to_id_table():
     obtained = geojson_to_id_table("tests/data/geojson_for_tests.geojson")
+    obtained_columns = obtained.columns
+    expected_columns = ["id", "X", "Y"]
+    assert (obtained_columns == expected_columns).all()
