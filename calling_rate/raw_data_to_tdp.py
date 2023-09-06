@@ -16,7 +16,8 @@ def geojson_to_id_table(geojson_path: str):
 
 
 def geojson_to_records_by_season_table(geojson_path):
-    pass
+    geopandas_df = geopandas.read_file(geojson_path)
+    return geopandas_df.loc[:, ["Temporada", "id", "Estatus", "Pres-Ause", "Cant Voc", "Tasa Voc"]]
 
 
 def shp_files_to_geojson(raw_data: str, output_path: str):
