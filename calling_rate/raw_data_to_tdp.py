@@ -7,9 +7,9 @@ def get_recording_coordinates(shp_path):
     return recording_coordinates_df
 
 
-def get_recording_data(shp_path):
+def get_recording_data(shp_path, geojson_path="tmp.geojson"):
     shp_files_to_geojson(shp_path)
-    recording_data_df = geojson_to_records_by_season_table()
+    recording_data_df = geojson_to_records_by_season_table(geojson_path)
     return recording_data_df
 
 
