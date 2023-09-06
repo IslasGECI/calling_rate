@@ -24,3 +24,6 @@ def tests_curator():
     output_df = pd.read_csv(output_path)
     assert output_df.shape[1] == 3
     os.remove(output_path)
+
+    result = runner.invoke(curator, "version")
+    assert "0.2.0" in result.stdout
