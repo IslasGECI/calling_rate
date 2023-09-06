@@ -6,10 +6,13 @@ all: check coverage mutants
 		clean \
 		coverage \
 		format \
+		green \
 		init \
 		install \
 		linter \
 		mutants \
+		red \
+		refactor \
 		setup \
 		tests
 
