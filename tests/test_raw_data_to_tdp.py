@@ -32,7 +32,10 @@ def tests_geojson_to_id_table():
 
 
 def test_geojson_to_records_by_season_table():
-    geojson_to_records_by_season_table(geojson_path)
+    obtained = geojson_to_records_by_season_table(geojson_path)
+    obtained_columns = obtained.columns
+    expected_columns = ["Temporada", "id", "Estatus", "Pres-Ause", "Cant Voc", "Tasa Voc"]
+    assert (obtained_columns == expected_columns).all()
 
 
 def test_get_recording_coordinates():
