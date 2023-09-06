@@ -1,6 +1,10 @@
 import geopandas
 
 
+def geojson_to_records_by_season_table(geojson_path):
+    pass
+
+
 def get_recording_coordinates(shp_path):
     geojson_path = "tmp.geojson"
     shp_files_to_geojson(shp_path, geojson_path)
