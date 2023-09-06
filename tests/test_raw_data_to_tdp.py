@@ -2,7 +2,7 @@ from calling_rate import (
     geojson_to_id_table,
     geojson_to_records_by_season_table,
     get_recording_coordinates,
-    get_records_data,
+    get_recording_data,
     shp_files_to_geojson,
 )
 
@@ -52,6 +52,6 @@ def test_get_records_data():
     geojson_path = "tmp.geojson"
     if os.path.exists(geojson_path):
         os.remove(geojson_path)
-    get_records_data(raw_path)
+    get_recording_data(raw_path)
     assert os.path.exists(geojson_path)
     os.remove(geojson_path)
