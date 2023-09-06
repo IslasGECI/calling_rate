@@ -1,7 +1,7 @@
 import geopandas
 
 
-def get_recording_coordinates(shp_path, geojson_path="XXtmp.geojsonXX"):
+def get_recording_coordinates(shp_path, geojson_path="tmp.geojson"):
     shp_files_to_geojson(shp_path)
     recording_coordinates_df = geojson_to_id_table(geojson_path)
     return recording_coordinates_df
