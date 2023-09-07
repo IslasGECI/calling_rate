@@ -3,9 +3,11 @@ from calling_rate import (
     geojson_to_records_by_season_table,
     get_recording_coordinates,
     get_recording_data,
+    replace_utm_to_lat_lon,
     shp_files_to_geojson,
 )
 
+import geopandas
 import os
 
 raw_path = "tests/data/nuevos_puntos_estimacion_poblacion2023.shp"
@@ -21,6 +23,14 @@ def test_shp_files_to_geojson():
 
 
 geojson_path = "tests/data/geojson_for_tests.geojson"
+
+
+def test_replace_utm_to_lat_lon():
+    geodataframe = geopandas.read_file(geojson_path)
+    obtained = replace_utm_to_lat_lon(geodataframe)
+    obtained_longitude = obtained.get_coordinates().x[0]
+    expected_longitude = 18.805663
+    assert obtained_longitude == expected_longitude
 
 
 def tests_geojson_to_id_table():
