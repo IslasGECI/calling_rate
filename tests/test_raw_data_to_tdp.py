@@ -32,6 +32,7 @@ def test_replace_utm_to_lat_lon():
     obtained_longitude = obtained.get_coordinates().x[0]
     obtained_latitude = obtained.get_coordinates().y[0]
     lat, lon = utm.to_latlon(obtained_longitude, obtained_latitude, 12, "Q")
+    print(lat, lon)
     expected_longitude = 18.805663
     assert obtained_longitude == expected_longitude
     expected_latitude = -110.966252
