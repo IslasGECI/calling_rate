@@ -1,3 +1,4 @@
+import utm
 from calling_rate import (
     geojson_to_id_table,
     geojson_to_records_by_season_table,
@@ -29,8 +30,12 @@ def test_replace_utm_to_lat_lon():
     geodataframe = geopandas.read_file(geojson_path)
     obtained = replace_utm_to_lat_lon(geodataframe)
     obtained_longitude = obtained.get_coordinates().x[0]
+    obtained_latitude = obtained.get_coordinates().y[0]
+    lat, lon = utm.to_latlon(obtained_longitude, obtained_latitude)
     expected_longitude = 18.805663
     assert obtained_longitude == expected_longitude
+    expected_latitude = -110.966252
+    assert obtained_latitude == expected_latitude
 
 
 def tests_geojson_to_id_table():
