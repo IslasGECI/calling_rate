@@ -20,6 +20,10 @@ def geojson_to_id_table(geojson_path: str):
     return geopandas_df.loc[:, ["id", "X", "Y"]]
 
 
+def replace_utm_to_lat_lon(geodataframe):
+    return geodataframe
+
+
 def geojson_to_records_by_season_table(geojson_path):
     geopandas_df = geopandas.read_file(geojson_path)
     return geopandas_df.loc[:, ["Temporada", "id", "Estatus", "Pres-Ause", "Cant Voc", "Tasa Voc"]]
