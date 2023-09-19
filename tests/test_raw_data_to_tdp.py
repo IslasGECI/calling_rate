@@ -30,8 +30,8 @@ def test_replace_utm_to_lat_lon():
     obtained_latitude = obtained.get_coordinates().y[0]
     expected_latitude = 18.789393
     expected_longitude = -110.960561
-    assert pytest.approx(obtained_longitude, 0.1) == expected_longitude
-    assert pytest.approx(obtained_latitude, 0.1) == expected_latitude
+    assert pytest.approx(obtained_longitude, 0.001) == expected_longitude
+    assert pytest.approx(obtained_latitude, 0.001) == expected_latitude
 
 
 geojson_path = "tests/data/geojson_for_tests.geojson"
