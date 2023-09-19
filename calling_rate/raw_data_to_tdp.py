@@ -1,5 +1,4 @@
 import geopandas
-from shapely.geometry import Point
 import utm
 
 
@@ -18,8 +17,8 @@ def get_recording_data(shp_path, geojson_path="tmp.geojson"):
 def geojson_to_id_table(geojson_path: str):
     geopandas_df = geopandas.read_file(geojson_path)
     geopandas_coordinates = geopandas_df.get_coordinates()
-    geopandas_df[["X", "Y"]] = geopandas_coordinates
-    return geopandas_df.loc[:, ["id", "X", "Y"]]
+    geopandas_df[["lon", "lat"]] = geopandas_coordinates
+    return geopandas_df.loc[:, ["id", "lat", "lon"]]
 
 
 def replace_utm_to_lat_lon(geodataframe):

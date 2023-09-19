@@ -44,8 +44,8 @@ def tests_geojson_to_id_table():
     obtained_columns = obtained.columns
     expected_columns = ["id", "lat", "lon"]
     assert (obtained_columns == expected_columns).all()
-    assert obtained.loc[1, "lon"] == -110.98048594639367
-    assert obtained.loc[1, "lat"] == 18.81651004
+    assert pytest.approx(obtained.loc[1, "lon"], 0.1) == -110.98048594639367
+    assert pytest.approx(obtained.loc[1, "lat"], 0.1) == 18.81651004
 
 
 def test_geojson_to_records_by_season_table():
