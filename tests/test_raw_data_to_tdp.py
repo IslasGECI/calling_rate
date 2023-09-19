@@ -24,22 +24,19 @@ def test_shp_files_to_geojson():
     # os.remove(geojson_path)
 
 
-geojson_path = "tests/data/geojson_for_tests.geojson"
-
-
 def test_replace_utm_to_lat_lon():
+    geojson_path = "tests/data/geojson_for_tests.geojson"
     geodataframe = geopandas.read_file(geojson_path)
-    print(geodataframe)
-
     obtained = replace_utm_to_lat_lon(geodataframe)
-    print(geodataframe)
-    print(obtained)
     obtained_longitude = obtained.get_coordinates().x[0]
     obtained_latitude = obtained.get_coordinates().y[0]
     expected_latitude = 18.789393
     expected_longitude = -110.960561
     assert pytest.approx(obtained_longitude, 0.1) == expected_longitude
     assert pytest.approx(obtained_latitude, 0.1) == expected_latitude
+
+
+geojson_path = "tests/data/geojson_with_lat_lon_in_geometry.geojson"
 
 
 def tests_geojson_to_id_table():
