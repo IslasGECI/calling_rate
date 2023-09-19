@@ -21,12 +21,11 @@ def test_shp_files_to_geojson():
         os.remove(geojson_path)
     shp_files_to_geojson(raw_path, geojson_path)
     assert os.path.exists(geojson_path)
-    # os.remove(geojson_path)
+    os.remove(geojson_path)
 
 
 def test_replace_utm_to_lat_lon():
-    geojson_path = "tests/data/geojson_for_tests.geojson"
-    geodataframe = geopandas.read_file(geojson_path)
+    geodataframe = geopandas.read_file(raw_path)
     obtained = replace_utm_to_lat_lon(geodataframe)
     obtained_longitude = obtained.get_coordinates().x[0]
     obtained_latitude = obtained.get_coordinates().y[0]
