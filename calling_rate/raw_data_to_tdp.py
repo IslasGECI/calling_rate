@@ -36,4 +36,5 @@ def geojson_to_records_by_season_table(geojson_path):
 
 def shp_files_to_geojson(raw_data: str, output_path: str = "tmp.geojson"):
     geopandas_df = geopandas.read_file(raw_data)
+    geopandas_df = replace_utm_to_lat_lon(geopandas_df)
     geopandas_df.to_file(output_path, driver="GeoJSON")
