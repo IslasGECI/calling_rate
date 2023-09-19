@@ -26,7 +26,7 @@ def tests_curator():
     os.remove(output_path)
 
     result = runner.invoke(curator, "version")
-    assert "0.3.0" in result.stdout
+    assert "0.3.1" in result.stdout
 
     recording_data_path = "tests/data/record_status_by_season.csv"
     if os.path.exists(recording_data_path):
