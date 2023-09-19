@@ -30,6 +30,8 @@ def replace_utm_to_lat_lon(geodataframe):
 
 def geojson_to_records_by_season_table(geojson_path):
     geopandas_df = geopandas.read_file(geojson_path)
+    number_of_minutes = 10
+    geopandas_df["Tasa Voc"] = geopandas_df["Cant Voc"] / number_of_minutes
     return geopandas_df.loc[:, ["Temporada", "id", "Estatus", "Pres-Ause", "Cant Voc", "Tasa Voc"]]
 
 
