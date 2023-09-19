@@ -45,10 +45,10 @@ def test_replace_utm_to_lat_lon():
 def tests_geojson_to_id_table():
     obtained = geojson_to_id_table(geojson_path)
     obtained_columns = obtained.columns
-    expected_columns = ["id", "X", "Y"]
+    expected_columns = ["id", "lat", "lon"]
     assert (obtained_columns == expected_columns).all()
-    assert obtained.loc[1, "X"] == 502056.092813999974169
-    assert obtained.loc[1, "Y"] == 2080525.00618
+    assert obtained.loc[1, "lon"] == -110.98048594639367
+    assert obtained.loc[1, "lat"] == 18.81651004
 
 
 def test_geojson_to_records_by_season_table():
