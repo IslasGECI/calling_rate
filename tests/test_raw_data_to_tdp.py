@@ -35,7 +35,7 @@ def test_replace_utm_to_lat_lon():
     assert pytest.approx(obtained_latitude, 0.1) == expected_latitude
 
 
-geojson_path = "tests/data/geojson_with_lat_lon_in_geometry.geojson"
+geojson_path = "tests/data/geojson_for_tests.geojson"
 
 
 def tests_geojson_to_id_table():
