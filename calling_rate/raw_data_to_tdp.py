@@ -1,4 +1,6 @@
 import geopandas
+from shapely.geometry import Point
+import utm
 
 
 def get_recording_coordinates(shp_path, geojson_path="tmp.geojson"):
@@ -21,7 +23,10 @@ def geojson_to_id_table(geojson_path: str):
 
 
 def replace_utm_to_lat_lon(geodataframe):
-    return geodataframe
+    coordinates = geodataframe.get_coordinates()
+    lat, lon = utm.to_latlon(coordinates.x, coordinates.y, 12, "Q")
+    geometry = geopandas.points_from_xy(lon, lat)
+    return geodataframe.set_geometry(geometry)
 
 
 def geojson_to_records_by_season_table(geojson_path):

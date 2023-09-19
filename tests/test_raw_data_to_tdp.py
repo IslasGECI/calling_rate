@@ -10,6 +10,7 @@ from calling_rate import (
 
 import geopandas
 import os
+import pytest
 
 raw_path = "tests/data/nuevos_puntos_estimacion_poblacion2023.shp"
 
@@ -28,15 +29,17 @@ geojson_path = "tests/data/geojson_for_tests.geojson"
 
 def test_replace_utm_to_lat_lon():
     geodataframe = geopandas.read_file(geojson_path)
+    print(geodataframe)
+
     obtained = replace_utm_to_lat_lon(geodataframe)
+    print(geodataframe)
+    print(obtained)
     obtained_longitude = obtained.get_coordinates().x[0]
     obtained_latitude = obtained.get_coordinates().y[0]
-    lat, lon = utm.to_latlon(obtained_longitude, obtained_latitude, 12, "Q")
-    print(lat, lon)
-    expected_longitude = 18.789393
-    assert obtained_longitude == expected_longitude
-    expected_latitude = -110.960561
-    assert obtained_latitude == expected_latitude
+    expected_latitude = 18.789393
+    expected_longitude = -110.960561
+    assert pytest.approx(obtained_longitude, 0.1) == expected_longitude
+    assert pytest.approx(obtained_latitude, 0.1) == expected_latitude
 
 
 def tests_geojson_to_id_table():
