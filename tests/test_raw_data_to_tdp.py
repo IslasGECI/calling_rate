@@ -1,4 +1,3 @@
-import utm
 from calling_rate import (
     geojson_to_id_table,
     geojson_to_records_by_season_table,
