@@ -51,6 +51,7 @@ def test_geojson_to_records_by_season_table():
     obtained_columns = obtained.columns
     expected_columns = ["Temporada", "id", "Estatus", "Pres-Ause", "Cant Voc", "Tasa Voc"]
     assert (obtained_columns == expected_columns).all()
+    assert obtained["Tasa Voc"].iloc[27] == 1.3
 
 
 def test_get_recording_coordinates():
