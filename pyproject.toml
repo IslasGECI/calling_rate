@@ -16,6 +16,7 @@ requires = [
     "pandas",
     "scipy",
     "typer[all]",
+    "utm"
 ]
 requires-python=">=3.9"
 
