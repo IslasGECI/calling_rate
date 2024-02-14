@@ -5,6 +5,10 @@ import pandas as pd
 
 
 def _get_burrow_coordinates(burrow_geci_data_path, burrow_jm_data_path):
+    return XX_get_burrow_coordinates(burrow_geci_data_path, burrow_jm_data_path)
+
+
+def XX_get_burrow_coordinates(burrow_geci_data_path, burrow_jm_data_path):
     burrow_geci_data = pd.read_csv(burrow_geci_data_path)
     burrow_jm_data = pd.read_csv(burrow_jm_data_path)
     merged_data = pd.concat([burrow_geci_data[["X", "Y"]], burrow_jm_data[["X", "Y"]]])
