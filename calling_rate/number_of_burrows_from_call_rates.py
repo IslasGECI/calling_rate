@@ -68,8 +68,12 @@ def get_density_in_recorder_area(paths):
     )
 
 
-def get_recorder_coordinates(recorder_data_path):
+def XXget_recorder_coordinates(recorder_data_path):
     return pd.read_csv(recorder_data_path).loc[:, ["Coordenada_X", "Coordenada_Y"]]
+
+
+def get_recorder_coordinates(recorder_data_path):
+    return XXget_recorder_coordinates(recorder_data_path)
 
 
 def get_area_for_each_recorder(recorder_data_path):
