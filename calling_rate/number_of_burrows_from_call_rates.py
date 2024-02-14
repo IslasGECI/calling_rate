@@ -4,13 +4,7 @@ import numpy as np
 import pandas as pd
 
 
-def _get_burrow_coordinates(burrow_geci_data_path, burrow_jm_data_path):
-    burrow_geci_data = pd.read_csv(burrow_geci_data_path)
-    burrow_jm_data = pd.read_csv(burrow_jm_data_path)
-    return XX_get_burrow_coordinates(burrow_geci_data, burrow_jm_data)
-
-
-def XX_get_burrow_coordinates(burrow_geci_data, burrow_jm_data):
+def _get_burrow_coordinates(burrow_geci_data, burrow_jm_data):
     merged_data = pd.concat([burrow_geci_data[["X", "Y"]], burrow_jm_data[["X", "Y"]]])
     return merged_data
 
@@ -18,13 +12,13 @@ def XX_get_burrow_coordinates(burrow_geci_data, burrow_jm_data):
 def _get_number_of_burrows_in_burrow_area(burrow_geci_data_path, burrow_jm_data_path):
     burrow_geci_data = pd.read_csv(burrow_geci_data_path)
     burrow_jm_data = pd.read_csv(burrow_jm_data_path)
-    return XX_get_burrow_coordinates(burrow_geci_data, burrow_jm_data).shape[0]
+    return _get_burrow_coordinates(burrow_geci_data, burrow_jm_data).shape[0]
 
 
 def _get_burrow_area(burrow_geci_data_path, burrow_jm_data_path):
     burrow_geci_data = pd.read_csv(burrow_geci_data_path)
     burrow_jm_data = pd.read_csv(burrow_jm_data_path)
-    burrow_points = XX_get_burrow_coordinates(burrow_geci_data, burrow_jm_data)
+    burrow_points = _get_burrow_coordinates(burrow_geci_data, burrow_jm_data)
     return ConvexHull(burrow_points).volume
 
 
@@ -41,7 +35,7 @@ def _get_burrow_polygon(burrow_geci_data_path, burrow_jm_data_path):
 def XX_get_burrow_polygon(burrow_geci_data_path, burrow_jm_data_path):
     burrow_geci_data = pd.read_csv(burrow_geci_data_path)
     burrow_jm_data = pd.read_csv(burrow_jm_data_path)
-    burrow_points = XX_get_burrow_coordinates(burrow_geci_data, burrow_jm_data)
+    burrow_points = _get_burrow_coordinates(burrow_geci_data, burrow_jm_data)
     hull = ConvexHull(burrow_points)
     return burrow_points.iloc[hull.vertices, :]
 
