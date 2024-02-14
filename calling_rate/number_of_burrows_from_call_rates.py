@@ -39,6 +39,10 @@ def is_inside_burrow_area(recorder_data, burrow_geci_data_path, burrow_jm_data_p
 
 
 def get_call_rate_in_burrow_area(recorder_data):
+    return XXget_call_rate_in_burrow_area(recorder_data)
+
+
+def XXget_call_rate_in_burrow_area(recorder_data):
     burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
     burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
     is_recorder_inside = is_inside_burrow_area(
