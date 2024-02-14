@@ -40,7 +40,7 @@ def is_inside_burrow_area(recorder_data):
     return path.Path(burrow_polygon).contains_points(recorder_coordinates)
 
 
-def XXget_call_rate_in_burrow_area(recorder_data):
+def get_call_rate_in_burrow_area(recorder_data):
     is_recorder_inside = is_inside_burrow_area(recorder_data)
     return recorder_data.loc[is_recorder_inside, "Tasa_Voc"].mean()
 
@@ -54,7 +54,7 @@ def get_density_in_recorder_area(paths):
     return (
         get_density_in_burrow_area(paths["geci_data"], paths["jm_data"])
         * get_call_rate_in_recorder_area(recorded_data)
-        / XXget_call_rate_in_burrow_area(recorded_data)
+        / get_call_rate_in_burrow_area(recorded_data)
     )
 
 
