@@ -8,7 +8,7 @@ from calling_rate import (
     get_number_of_recorders,
     get_recorder_area,
     get_recorder_coordinates,
-    is_inside_burrow_area,
+    XXis_inside_burrow_area,
 )
 
 import pandas as pd
@@ -38,7 +38,8 @@ def test_get_recorder_coordinates():
 # Calcula el promedio de tasas de vocalización (v) dentro de la envolvente
 def test_is_inside_burrow_area():
     expected_inside = 10
-    obtained_inside = sum(is_inside_burrow_area(recorder_data_path))
+    recorded_data = pd.read_csv(recorder_data_path)
+    obtained_inside = sum(XXis_inside_burrow_area(recorded_data))
     assert obtained_inside == expected_inside
 
 
