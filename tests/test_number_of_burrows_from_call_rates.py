@@ -1,6 +1,6 @@
 from calling_rate import (
     get_area_for_each_recorder,
-    get_call_rate_in_burrow_area,
+    XXget_call_rate_in_burrow_area,
     get_call_rate_in_recorder_area,
     get_density_in_burrow_area,
     get_density_in_recorder_area,
@@ -45,7 +45,8 @@ def test_is_inside_burrow_area():
 
 def test_get_call_rate_in_burrow_area():
     expected_call_rate = 3.01
-    obtained_call_rate = get_call_rate_in_burrow_area(recorder_data_path)
+    recorded_data = pd.read_csv(recorder_data_path)
+    obtained_call_rate = XXget_call_rate_in_burrow_area(recorded_data)
     assert pytest.approx(obtained_call_rate, 0.001) == expected_call_rate
 
 
