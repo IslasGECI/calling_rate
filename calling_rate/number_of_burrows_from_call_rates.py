@@ -41,7 +41,7 @@ def _get_burrow_polygon(burrow_geci_data_path, burrow_jm_data_path):
 def XX_get_burrow_polygon(burrow_geci_data_path, burrow_jm_data_path):
     burrow_geci_data = pd.read_csv(burrow_geci_data_path)
     burrow_jm_data = pd.read_csv(burrow_jm_data_path)
-    burrow_points = _get_burrow_coordinates(burrow_geci_data_path, burrow_jm_data_path)
+    burrow_points = XX_get_burrow_coordinates(burrow_geci_data, burrow_jm_data)
     hull = ConvexHull(burrow_points)
     return burrow_points.iloc[hull.vertices, :]
 
