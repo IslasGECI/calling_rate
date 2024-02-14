@@ -7,7 +7,7 @@ from calling_rate import (
     get_number_of_burrows_in_recorder_area,
     get_number_of_recorders,
     get_recorder_area,
-    XXget_recorder_coordinates,
+    get_recorder_coordinates,
     is_inside_burrow_area,
 )
 
@@ -31,7 +31,7 @@ recorder_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion.csv"
 def test_get_recorder_coordinates():
     expected_n_recorders = 80
     recorder_data = pd.read_csv(recorder_data_path)
-    obtained_n_recorders = XXget_recorder_coordinates(recorder_data).shape[0]
+    obtained_n_recorders = get_recorder_coordinates(recorder_data).shape[0]
     assert obtained_n_recorders == expected_n_recorders
 
 
