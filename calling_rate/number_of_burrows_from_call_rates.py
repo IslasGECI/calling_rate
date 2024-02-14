@@ -13,7 +13,7 @@ def _get_number_of_burrows_in_burrow_area(burrow_geci_data, burrow_jm_data):
     return _get_burrow_coordinates(burrow_geci_data, burrow_jm_data).shape[0]
 
 
-def XX_get_burrow_area(burrow_geci_data, burrow_jm_data):
+def _get_burrow_area(burrow_geci_data, burrow_jm_data):
     burrow_points = _get_burrow_coordinates(burrow_geci_data, burrow_jm_data)
     return ConvexHull(burrow_points).volume
 
@@ -23,7 +23,7 @@ def get_density_in_burrow_area(burrow_geci_data_path, burrow_jm_data_path):
     burrow_jm_data = pd.read_csv(burrow_jm_data_path)
     return _get_number_of_burrows_in_burrow_area(
         burrow_geci_data, burrow_jm_data
-    ) / XX_get_burrow_area(burrow_geci_data, burrow_jm_data)
+    ) / _get_burrow_area(burrow_geci_data, burrow_jm_data)
 
 
 def _get_burrow_polygon(burrow_geci_data_path, burrow_jm_data_path):
