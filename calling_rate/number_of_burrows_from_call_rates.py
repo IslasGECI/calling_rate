@@ -24,13 +24,7 @@ def get_density_in_burrow_area(burrow_geci_data, burrow_jm_data):
     ) / _get_burrow_area(burrow_geci_data, burrow_jm_data)
 
 
-def _get_burrow_polygon(burrow_geci_data_path, burrow_jm_data_path):
-    burrow_geci_data = pd.read_csv(burrow_geci_data_path)
-    burrow_jm_data = pd.read_csv(burrow_jm_data_path)
-    return XX_get_burrow_polygon(burrow_geci_data, burrow_jm_data)
-
-
-def XX_get_burrow_polygon(burrow_geci_data, burrow_jm_data):
+def _get_burrow_polygon(burrow_geci_data, burrow_jm_data):
     burrow_points = _get_burrow_coordinates(burrow_geci_data, burrow_jm_data)
     hull = ConvexHull(burrow_points)
     return burrow_points.iloc[hull.vertices, :]
@@ -42,7 +36,7 @@ def is_inside_burrow_area(recorder_data):
     burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
     burrow_geci_data = pd.read_csv(burrow_geci_data_path)
     burrow_jm_data = pd.read_csv(burrow_jm_data_path)
-    burrow_polygon = XX_get_burrow_polygon(burrow_geci_data, burrow_jm_data)
+    burrow_polygon = _get_burrow_polygon(burrow_geci_data, burrow_jm_data)
     return path.Path(burrow_polygon).contains_points(recorder_coordinates)
 
 
