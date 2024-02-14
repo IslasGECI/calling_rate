@@ -8,7 +8,7 @@ from calling_rate import (
     get_number_of_recorders,
     get_recorder_area,
     get_recorder_coordinates,
-    XXis_inside_burrow_area,
+    is_inside_burrow_area,
 )
 
 import pandas as pd
@@ -44,7 +44,7 @@ def test_is_inside_burrow_area():
     burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
     burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
     obtained_inside = sum(
-        XXis_inside_burrow_area(recorded_data, burrow_geci_data_path, burrow_jm_data_path)
+        is_inside_burrow_area(recorded_data, burrow_geci_data_path, burrow_jm_data_path)
     )
     assert obtained_inside == expected_inside
 
