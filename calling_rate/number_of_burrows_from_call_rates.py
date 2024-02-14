@@ -29,7 +29,7 @@ def get_density_in_burrow_area(burrow_geci_data_path, burrow_jm_data_path):
     burrow_jm_data = pd.read_csv(burrow_jm_data_path)
     return _get_number_of_burrows_in_burrow_area(
         burrow_geci_data, burrow_jm_data
-    ) / _get_burrow_area(burrow_geci_data_path, burrow_jm_data_path)
+    ) / XX_get_burrow_area(burrow_geci_data, burrow_jm_data)
 
 
 def _get_burrow_polygon(burrow_geci_data_path, burrow_jm_data_path):
