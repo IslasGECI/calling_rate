@@ -45,7 +45,11 @@ def XXis_inside_burrow_area(recorder_data, burrow_geci_data_path, burrow_jm_data
 
 
 def get_call_rate_in_burrow_area(recorder_data):
-    is_recorder_inside = is_inside_burrow_area(recorder_data)
+    burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
+    burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
+    is_recorder_inside = XXis_inside_burrow_area(
+        recorder_data, burrow_geci_data_path, burrow_jm_data_path
+    )
     return recorder_data.loc[is_recorder_inside, "Tasa_Voc"].mean()
 
 
