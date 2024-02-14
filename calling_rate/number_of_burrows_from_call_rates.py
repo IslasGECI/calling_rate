@@ -48,7 +48,7 @@ def get_call_rate_in_burrow_area(recorder_data_path):
 
 def get_call_rate_in_recorder_area(recorder_data_path):
     recorder_data = pd.read_csv(recorder_data_path)
-    return recorder_data["Tasa_Voc"].mean()
+    return XXget_call_rate_in_recorder_area(recorder_data_path)
 
 
 def XXget_call_rate_in_recorder_area(recorder_data_path):
