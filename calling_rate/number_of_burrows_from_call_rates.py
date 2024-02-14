@@ -27,6 +27,10 @@ def get_density_in_burrow_area(burrow_geci_data_path, burrow_jm_data_path):
 
 
 def _get_burrow_polygon(burrow_geci_data_path, burrow_jm_data_path):
+    return XX_get_burrow_polygon(burrow_geci_data_path, burrow_jm_data_path)
+
+
+def XX_get_burrow_polygon(burrow_geci_data_path, burrow_jm_data_path):
     burrow_points = _get_burrow_coordinates(burrow_geci_data_path, burrow_jm_data_path)
     hull = ConvexHull(burrow_points)
     return burrow_points.iloc[hull.vertices, :]
