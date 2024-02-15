@@ -45,7 +45,7 @@ def get_call_rate_in_recorder_area(recorder_data):
     return recorder_data["Tasa_Voc"].mean()
 
 
-def xxget_density_in_recorder_area(paths):
+def get_density_in_recorder_area(paths):
     data = Data(paths)
     return (
         get_density_in_burrow_area(data.burrow_geci_data, data.burrow_jm_data)
@@ -87,4 +87,4 @@ def get_recorder_area(recorder_data_path):
 
 
 def get_number_of_burrows_in_recorder_area(paths):
-    return xxget_density_in_recorder_area(paths) * get_recorder_area(paths["recorders_data"])
+    return get_density_in_recorder_area(paths) * get_recorder_area(paths["recorders_data"])
