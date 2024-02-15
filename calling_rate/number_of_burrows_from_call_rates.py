@@ -45,10 +45,6 @@ def get_call_rate_in_recorder_area(recorder_data):
     return recorder_data["Tasa_Voc"].mean()
 
 
-def get_density_in_recorder_area(paths):
-    return xxget_density_in_recorder_area(paths)
-
-
 def xxget_density_in_recorder_area(paths):
     data = Data(paths)
     return (
