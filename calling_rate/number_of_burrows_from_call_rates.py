@@ -46,6 +46,10 @@ def get_call_rate_in_recorder_area(recorder_data):
 
 
 def get_density_in_recorder_area(paths):
+    return xxget_density_in_recorder_area(paths)
+
+
+def xxget_density_in_recorder_area(paths):
     recorded_data = pd.read_csv(paths["recorders_data"])
     burrow_geci_data = pd.read_csv(paths["geci_data"])
     burrow_jm_data = pd.read_csv(paths["jm_data"])
