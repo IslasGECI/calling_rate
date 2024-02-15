@@ -60,6 +60,13 @@ def xxget_density_in_recorder_area(paths):
     )
 
 
+class Data:
+    def __init__(self, paths):
+        self.recorded_data = pd.read_csv(paths["recorders_data"])
+        self.burrow_geci_data = pd.read_csv(paths["geci_data"])
+        self.burrow_jm_data = pd.read_csv(paths["jm_data"])
+
+
 def get_recorder_coordinates(recorder_data):
     return recorder_data.loc[:, ["Coordenada_X", "Coordenada_Y"]]
 
