@@ -25,5 +25,5 @@ def assert_the_nrow_is_the_same_to_the_original(obtained):
 
 def assert_the_first_id_is_different_to_64(obtained):
     original_first_id = 64
-    obtained_first_id = obtained.loc["ID_punto"][0]
-    assert obtained_first_id == original_first_id
+    obtained_first_id = obtained.loc[[0, "ID_punto"]]
+    assert obtained_first_id != original_first_id
