@@ -61,10 +61,13 @@ class RateCalling_Burrow_Data:
         self.recorded_data = pd.read_csv(paths["recorders_data"])
         self.burrow_geci_data = pd.read_csv(paths["geci_data"])
         self.burrow_jm_data = pd.read_csv(paths["jm_data"])
+        self.random_state = np.random.default_rng(seed=42)
 
     def bootstrapping(self):
         number_samples = len(self.recorded_data)
-        return self.recorded_data.sample(n=number_samples, replace=True, random_state=42)
+        return self.recorded_data.sample(
+            n=number_samples, replace=True, random_state=self.random_state
+        )
 
     def get_density_in_recorder_area(self):
         return np.array([0, 1, 2])

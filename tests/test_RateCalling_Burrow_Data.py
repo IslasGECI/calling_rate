@@ -47,12 +47,12 @@ def assert_the_first_id_is_different_to_original_first_id(obtained):
 
 
 def assert_the_first_id_is_stable(obtained):
-    expected_first_id = 225
+    expected_first_id = 144
     obtained_first_id = obtained.ID_punto.values[0]
     assert obtained_first_id == expected_first_id
 
 
 def assert_the_first_id_is_different_to_first_sample(obtained):
-    expected_first_id = 225
+    expected_first_id = 144
     obtained_first_id = obtained.ID_punto.values[0]
     assert obtained_first_id != expected_first_id, "The seed is the same in each call of sample"
