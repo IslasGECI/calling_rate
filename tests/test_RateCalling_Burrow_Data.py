@@ -21,3 +21,9 @@ def test_ratecalling_bootstrapping():
 def assert_the_nrow_is_the_same_to_the_original(obtained):
     expected_number_samples = 85
     assert len(obtained) == expected_number_samples
+
+
+def assert_the_first_id_is_different_to_64(obtained):
+    original_first_id = 64
+    obtained_first_id = obtained.loc["ID_punto"][0]
+    assert obtained_first_id == original_first_id
