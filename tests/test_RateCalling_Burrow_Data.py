@@ -1,16 +1,21 @@
 from calling_rate import RateCalling_Burrow_Data
 
+recorder_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion_nuevos.csv"
+burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
+burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
+paths = {
+    "recorders_data": recorder_data_path,
+    "geci_data": burrow_geci_data_path,
+    "jm_data": burrow_jm_data_path,
+}
+
+
+def test_ratecalling_get_density_in_recorder_area():
+    ratecalling_burrow_data = RateCalling_Burrow_Data(paths)
+    ratecalling_burrow_data.get_density_in_recorder_area()
+
 
 def test_ratecalling_bootstrapping():
-
-    recorder_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion_nuevos.csv"
-    burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
-    burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
-    paths = {
-        "recorders_data": recorder_data_path,
-        "geci_data": burrow_geci_data_path,
-        "jm_data": burrow_jm_data_path,
-    }
     ratecalling_burrow_data = RateCalling_Burrow_Data(paths)
     obtained = ratecalling_burrow_data.bootstrapping()
     print(obtained)
