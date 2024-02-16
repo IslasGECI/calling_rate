@@ -12,13 +12,13 @@ paths = {
 
 def test_ratecalling_get_density_in_recorder_area():
     ratecalling_burrow_data = RateCalling_Burrow_Data(paths)
-    ratecalling_burrow_data.get_density_in_recorder_area()
+    obtained = ratecalling_burrow_data.get_density_in_recorder_area()
+    assert isinstance(obtained, list)
 
 
 def test_ratecalling_bootstrapping():
     ratecalling_burrow_data = RateCalling_Burrow_Data(paths)
     obtained = ratecalling_burrow_data.bootstrapping()
-    print(obtained)
     assert_the_nrow_is_the_same_to_the_original(obtained)
     assert_the_first_id_is_different_to_64(obtained)
     assert_the_first_id_is_stable(obtained)
