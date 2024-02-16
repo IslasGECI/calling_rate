@@ -76,12 +76,11 @@ class RateCalling_Burrow_Data:
         return [self._density_for_each_sample() for i in range(B)]
 
     def _density_for_each_sample(self):
+        resample = self.bootstrapping()
         return (
             get_density_in_burrow_area(self.burrow_geci_data, self.burrow_jm_data)
-            * get_call_rate_in_recorder_area(self.bootstrapping())
-            / get_call_rate_in_burrow_area(
-                self.bootstrapping(), self.burrow_geci_data, self.burrow_jm_data
-            )
+            * get_call_rate_in_recorder_area(resample)
+            / get_call_rate_in_burrow_area(resample, self.burrow_geci_data, self.burrow_jm_data)
         )
 
 
