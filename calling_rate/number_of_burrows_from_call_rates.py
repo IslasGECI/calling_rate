@@ -63,7 +63,8 @@ class RateCalling_Burrow_Data:
         self.burrow_jm_data = pd.read_csv(paths["jm_data"])
 
     def bootstrapping(self):
-        return self.recorded_data
+        number_samples = len(self.recorded_data)
+        return self.recorded_data.sample(n=number_samples, replace=True, random_state=42)
 
 
 def get_recorder_coordinates(recorder_data):
