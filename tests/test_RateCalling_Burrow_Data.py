@@ -12,7 +12,7 @@ def test_ratecalling_bootstrapping():
         "jm_data": burrow_jm_data_path,
     }
     ratecalling_burrow_data = RateCalling_Burrow_Data(paths)
-    obtained = ratecalling_burrow_data.recorded_data
+    obtained = ratecalling_burrow_data.bootstrapping()
     assert_the_nrow_is_the_same_to_the_original(obtained)
 
 
