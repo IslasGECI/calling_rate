@@ -19,6 +19,12 @@ def test_ratecalling_get_density_in_recorder_area():
     assert_have_the_3_interval_elements(obtained)
 
 
+def test_get_bootstrapping_distribution_of_density_in_recorded_area():
+    ratecalling_burrow_data = RateCalling_Burrow_Data(paths)
+    obtained = ratecalling_burrow_data.get_distribution_density_in_recorder_area()
+    assert_that_the_distribition_has_2000_elements(obtained)
+
+
 def assert_have_the_3_interval_elements(obtained):
     expected_len = 3
     assert len(obtained) == expected_len
