@@ -13,5 +13,9 @@ def test_ratecalling_bootstrapping():
     }
     ratecalling_burrow_data = RateCalling_Burrow_Data(paths)
     obtained = ratecalling_burrow_data.recorded_data
-    expected_number_samples = 85
     assert_the_nrow_is_the_same_to_the_original(obtained)
+
+
+def assert_the_nrow_is_the_same_to_the_original(obtained):
+    expected_number_samples = 85
+    assert len(obtained) == expected_number_samples
