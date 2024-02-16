@@ -66,6 +66,9 @@ class RateCalling_Burrow_Data:
         number_samples = len(self.recorded_data)
         return self.recorded_data.sample(n=number_samples, replace=True, random_state=42)
 
+    def get_density_in_recorder_area(self):
+        pass
+
 
 def get_recorder_coordinates(recorder_data):
     return recorder_data.loc[:, ["Coordenada_X", "Coordenada_Y"]]
