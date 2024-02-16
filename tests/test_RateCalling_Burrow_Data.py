@@ -10,17 +10,18 @@ paths = {
     "geci_data": burrow_geci_data_path,
     "jm_data": burrow_jm_data_path,
 }
+B = 100
 
 
 def test_ratecalling_get_density_in_recorder_area():
-    ratecalling_burrow_data = RateCalling_Burrow_Data(paths)
+    ratecalling_burrow_data = RateCalling_Burrow_Data(paths, B=B)
     obtained = ratecalling_burrow_data.get_density_in_recorder_area()
+    print(obtained)
     assert isinstance(obtained, np.ndarray)
     assert_have_the_3_interval_elements(obtained)
 
 
 def test_get_bootstrapping_distribution_of_density_in_recorded_area():
-    B = 100
     ratecalling_burrow_data = RateCalling_Burrow_Data(paths, B=B)
     obtained = ratecalling_burrow_data.get_distribution_density_in_recorder_area()
     assert_that_the_distribition_has_B_elements(obtained, B)
