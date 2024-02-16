@@ -72,6 +72,16 @@ class RateCalling_Burrow_Data:
     def get_density_in_recorder_area(self):
         return np.array([0, 1, 2])
 
+    def get_distribution_density_in_recorder_area(self):
+        return [
+            get_density_in_burrow_area(self.burrow_geci_data, self.burrow_jm_data)
+            * get_call_rate_in_recorder_area(self.bootstrapping())
+            / get_call_rate_in_burrow_area(
+                self.bootstrapping(), self.burrow_geci_data, self.burrow_jm_data
+            )
+            for i in range(2000)
+        ]
+
 
 def get_recorder_coordinates(recorder_data):
     return recorder_data.loc[:, ["Coordenada_X", "Coordenada_Y"]]
