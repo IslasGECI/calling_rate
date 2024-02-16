@@ -15,6 +15,7 @@ def test_ratecalling_bootstrapping():
     obtained = ratecalling_burrow_data.bootstrapping()
     print(obtained)
     assert_the_nrow_is_the_same_to_the_original(obtained)
+    assert_the_first_id_is_different_to_64(obtained)
 
 
 def assert_the_nrow_is_the_same_to_the_original(obtained):
