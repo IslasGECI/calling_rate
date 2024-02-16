@@ -16,6 +16,7 @@ def test_ratecalling_bootstrapping():
     print(obtained)
     assert_the_nrow_is_the_same_to_the_original(obtained)
     assert_the_first_id_is_different_to_64(obtained)
+    assert_the_first_id_is_stable(obtained)
 
 
 def assert_the_nrow_is_the_same_to_the_original(obtained):
@@ -25,5 +26,11 @@ def assert_the_nrow_is_the_same_to_the_original(obtained):
 
 def assert_the_first_id_is_different_to_64(obtained):
     original_first_id = 64
-    obtained_first_id = obtained.loc[0, "ID_punto"]
+    obtained_first_id = obtained.ID_punto.values[0]
     assert obtained_first_id != original_first_id
+
+
+def assert_the_first_id_is_stable(obtained):
+    expected_first_id = 255
+    obtained_first_id = obtained.ID_punto.values[0]
+    assert obtained_first_id == expected_first_id
