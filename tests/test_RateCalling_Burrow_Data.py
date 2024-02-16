@@ -14,6 +14,12 @@ def test_ratecalling_get_density_in_recorder_area():
     ratecalling_burrow_data = RateCalling_Burrow_Data(paths)
     obtained = ratecalling_burrow_data.get_density_in_recorder_area()
     assert isinstance(obtained, list)
+    assert_have_3_elements(obtained)
+
+
+def assert_have_3_elements(obtained):
+    expected_len = 3
+    assert len(obtained) == expected_len
 
 
 def test_ratecalling_bootstrapping():
