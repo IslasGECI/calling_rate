@@ -57,11 +57,12 @@ def get_density_in_recorder_area(paths):
 
 
 class RateCalling_Burrow_Data:
-    def __init__(self, paths):
+    def __init__(self, paths, B=2000):
         self.recorded_data = pd.read_csv(paths["recorders_data"])
         self.burrow_geci_data = pd.read_csv(paths["geci_data"])
         self.burrow_jm_data = pd.read_csv(paths["jm_data"])
         self.random_state = np.random.default_rng(seed=42)
+        self.B = B
 
     def bootstrapping(self):
         number_samples = len(self.recorded_data)
@@ -72,8 +73,8 @@ class RateCalling_Burrow_Data:
     def get_density_in_recorder_area(self):
         return np.array([0, 1, 2])
 
-    def get_distribution_density_in_recorder_area(self, B=2000):
-        return [self._density_for_each_sample() for i in range(B)]
+    def get_distribution_density_in_recorder_area(self):
+        return [self._density_for_each_sample() for _ in range(self.B)]
 
     def _density_for_each_sample(self):
         resample = self.bootstrapping()
