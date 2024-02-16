@@ -67,7 +67,7 @@ class RateCalling_Burrow_Data:
         return self.recorded_data.sample(n=number_samples, replace=True, random_state=42)
 
     def get_density_in_recorder_area(self):
-        return [0, 1, 2]
+        return np.array([0, 1, 2])
 
 
 def get_recorder_coordinates(recorder_data):
