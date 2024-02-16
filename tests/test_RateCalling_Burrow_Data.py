@@ -1,5 +1,7 @@
 from calling_rate import RateCalling_Burrow_Data
 
+import numpy as np
+
 recorder_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion_nuevos.csv"
 burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
 burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
@@ -13,7 +15,7 @@ paths = {
 def test_ratecalling_get_density_in_recorder_area():
     ratecalling_burrow_data = RateCalling_Burrow_Data(paths)
     obtained = ratecalling_burrow_data.get_density_in_recorder_area()
-    assert isinstance(obtained, list)
+    assert isinstance(obtained, np.ndarray)
     assert_have_3_elements(obtained)
 
 
