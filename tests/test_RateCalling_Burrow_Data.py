@@ -13,6 +13,7 @@ def test_ratecalling_bootstrapping():
     }
     ratecalling_burrow_data = RateCalling_Burrow_Data(paths)
     obtained = ratecalling_burrow_data.bootstrapping()
+    print(obtained)
     assert_the_nrow_is_the_same_to_the_original(obtained)
 
 

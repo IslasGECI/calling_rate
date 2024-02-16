@@ -62,6 +62,9 @@ class RateCalling_Burrow_Data:
         self.burrow_geci_data = pd.read_csv(paths["geci_data"])
         self.burrow_jm_data = pd.read_csv(paths["jm_data"])
 
+    def bootstrapping(self):
+        return self.recorded_data
+
 
 def get_recorder_coordinates(recorder_data):
     return recorder_data.loc[:, ["Coordenada_X", "Coordenada_Y"]]
