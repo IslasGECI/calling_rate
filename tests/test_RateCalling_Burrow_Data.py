@@ -31,6 +31,9 @@ def test_ratecalling_bootstrapping():
     assert_the_first_id_is_different_to_original_first_id(obtained)
     assert_the_first_id_is_stable(obtained)
 
+    obtained = ratecalling_burrow_data.bootstrapping()
+    assert_the_first_id_is_different_to_first_sample(obtained)
+
 
 def assert_the_nrow_is_the_same_to_the_original(obtained):
     expected_number_samples = 85
@@ -40,10 +43,16 @@ def assert_the_nrow_is_the_same_to_the_original(obtained):
 def assert_the_first_id_is_different_to_original_first_id(obtained):
     original_first_id = 64
     obtained_first_id = obtained.ID_punto.values[0]
-    assert obtained_first_id != original_first_id
+    assert obtained_first_id != original_first_id, "It did not shuffle"
 
 
 def assert_the_first_id_is_stable(obtained):
     expected_first_id = 225
     obtained_first_id = obtained.ID_punto.values[0]
     assert obtained_first_id == expected_first_id
+
+
+def assert_the_first_id_is_different_to_first_sample(obtained):
+    expected_first_id = 225
+    obtained_first_id = obtained.ID_punto.values[0]
+    assert obtained_first_id != expected_first_id, "The seed is the same in each call of sample"
