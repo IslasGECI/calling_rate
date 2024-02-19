@@ -106,8 +106,6 @@ def test_get_recorder_area():
 # Calcula el número total de madrigueras N = 𝚺·A
 def test_get_number_of_burrows_in_recorder_area():
     expected_number_of_burrows = 175
-    burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
-    burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
     paths = setup_path_with_recorded_data(recorder_data_path)
 
     obtained_number_of_burrows = get_number_of_burrows_in_recorder_area(paths)
