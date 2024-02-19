@@ -108,15 +108,11 @@ def test_get_number_of_burrows_in_recorder_area():
     expected_number_of_burrows = 175
     burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
     burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
-    paths = {
-        "recorders_data": recorder_data_path,
-        "geci_data": burrow_geci_data_path,
-        "jm_data": burrow_jm_data_path,
-    }
+    paths = setup_path_with_recorded_data(recorder_data_path)
 
     obtained_number_of_burrows = get_number_of_burrows_in_recorder_area(paths)
-
     assert pytest.approx(obtained_number_of_burrows, 0.1) == expected_number_of_burrows
+
     new_recorders_path = "tests/data/puntos_grabaciones_estimacion_poblacion_nuevos.csv"
     paths = {
         "recorders_data": new_recorders_path,
@@ -125,3 +121,13 @@ def test_get_number_of_burrows_in_recorder_area():
     }
     obtained_number_of_burrows = get_number_of_burrows_in_recorder_area(paths)
     assert pytest.approx(obtained_number_of_burrows, 0.1) == 350
+
+
+def setup_path_with_recorded_data(recorder_data_path):
+    burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
+    burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
+    return {
+        "recorders_data": recorder_data_path,
+        "geci_data": burrow_geci_data_path,
+        "jm_data": burrow_jm_data_path,
+    }
