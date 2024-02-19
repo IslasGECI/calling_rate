@@ -16,9 +16,9 @@ import pytest
 
 
 recorder_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion.csv"
-recorded_data = pd.read_csv(recorder_data_path)
 burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
 burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
+recorded_data = pd.read_csv(recorder_data_path)
 burrow_geci_data = pd.read_csv(burrow_geci_data_path)
 burrow_jm_data = pd.read_csv(burrow_jm_data_path)
 
@@ -26,10 +26,6 @@ burrow_jm_data = pd.read_csv(burrow_jm_data_path)
 # Calcula la densidad (𝜎) de madrigueras en el polígono envolvente
 def test_get_density_in_burrow_area():
     expected_density = 3.559479030607237e-5
-    burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
-    burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
-    burrow_geci_data = pd.read_csv(burrow_geci_data_path)
-    burrow_jm_data = pd.read_csv(burrow_jm_data_path)
     obtained_density = get_density_in_burrow_area(burrow_geci_data, burrow_jm_data)
     assert obtained_density == expected_density
 
