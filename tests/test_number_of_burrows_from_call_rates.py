@@ -30,6 +30,14 @@ def test_get_density_in_burrow_area():
     assert obtained_density == expected_density
 
 
+def test_get_density_in_burrow_area_with_synthetic_data():
+    burrow_geci_data = pd.read_csv("tests/data/coordinates_like_geci.csv")
+    burrow_jm_data = pd.read_csv("tests/data/coordinates_like_jm.csv")
+    expected_density = 1
+    obtained_density = get_density_in_burrow_area(burrow_geci_data, burrow_jm_data)
+    assert obtained_density == expected_density
+
+
 # Lee los datos de tasas de vocalización
 def test_get_recorder_coordinates():
     expected_n_recorders = 80
@@ -65,6 +73,21 @@ def test_get_density_in_recorder_area():
     paths = setup_path_with_recorded_data(recorder_data_path)
     obtained_density = get_density_in_recorder_area(paths)
     assert obtained_density == expected_density
+
+
+def test_get_density_in_recorder_area_with_synthetic_data():
+    expected_density = 3.0
+    paths = setup_inner_calling_mean_2_and_in_big_area_calling_mean_6_density_burrows_inner_area_1()
+    obtained_density = get_density_in_recorder_area(paths)
+    assert obtained_density == expected_density
+
+
+def setup_inner_calling_mean_2_and_in_big_area_calling_mean_6_density_burrows_inner_area_1():
+    return {
+        "recorders_data": "tests/data/synthetic_recorders_data.csv",
+        "geci_data": "tests/data/coordinates_like_geci.csv",
+        "jm_data": "tests/data/coordinates_like_jm.csv",
+    }
 
 
 # Calcula el area de las grabadoras (A=n·dA)

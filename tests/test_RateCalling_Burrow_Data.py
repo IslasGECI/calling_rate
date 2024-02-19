@@ -1,6 +1,8 @@
 from calling_rate import RateCalling_Burrow_Data
 
 import numpy as np
+from collections import Counter
+import pytest
 
 recorder_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion_nuevos.csv"
 burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
@@ -43,9 +45,29 @@ def test_ratecalling_bootstrapping():
     assert_the_nrow_is_the_same_to_the_original(obtained)
     assert_the_first_id_is_different_to_original_first_id(obtained)
     assert_the_first_id_is_stable(obtained)
-
     obtained = ratecalling_burrow_data.bootstrapping()
     assert_the_first_id_is_different_to_first_sample(obtained)
+
+    paths_synthetic_data = paths
+    paths_synthetic_data["recorders_data"] = "tests/data/synthetic_recorders_data.csv"
+    ratecalling_burrow_data = RateCalling_Burrow_Data(paths_synthetic_data)
+    obtained_ids = []
+    for i in range(10000):
+        resample = ratecalling_burrow_data.bootstrapping()
+        obtained_ids.extend(resample.ID_punto.values)
+    ocurrences = Counter(obtained_ids)
+    print(ocurrences)
+    prob_ocurrences = np.array(list(ocurrences.values())) / len(obtained_ids)
+    print(prob_ocurrences)
+    assert_uniform_distribution_probability(prob_ocurrences)
+    print(len(obtained_ids))
+    print(np.mean(obtained_ids))
+    print(np.std(obtained_ids) ** 2)
+
+
+def assert_uniform_distribution_probability(prob_ocurrences):
+    for i in prob_ocurrences:
+        assert i == pytest.approx(1 / 9, 0.01)
 
 
 def assert_the_nrow_is_the_same_to_the_original(obtained):
