@@ -1,4 +1,5 @@
 from calling_rate import (
+    RateCalling_Burrow_Data,
     get_area_for_each_recorder,
     get_call_rate_in_burrow_area,
     get_call_rate_in_recorder_area,
@@ -121,6 +122,16 @@ def test_get_number_of_burrows_in_recorder_area():
     paths = setup_path_with_recorded_data(new_recorders_path)
     obtained_number_of_burrows = get_number_of_burrows_in_recorder_area(paths)
     assert pytest.approx(obtained_number_of_burrows, 0.1) == 350
+
+
+def test_get_bootstrapped_number_of_burrows_in_recorder_area():
+    paths = setup_path_with_recorded_data(recorder_data_path)
+    ratecalling_burrow_data = RateCalling_Burrow_Data(paths)
+    obtained_number_of_burrows = (
+        ratecalling_burrow_data.get_bootstrapped_number_of_burrows_in_recorder_area()
+    )
+    expected_number_of_burrows = 66
+    assert pytest.approx(obtained_number_of_burrows[1], 0.1) == expected_number_of_burrows
 
 
 def setup_path_with_recorded_data(recorder_data_path):
