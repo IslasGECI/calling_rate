@@ -73,13 +73,7 @@ def test_get_call_rate_in_recorder_area():
 # Calcula densidad (𝚺) promedio para toda el área (A) de las grabadoras (𝚺 = 𝜎·V/v)
 def test_get_density_in_recorder_area():
     expected_density = 2.4316208493973858e-05
-    burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
-    burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
-    paths = {
-        "recorders_data": recorder_data_path,
-        "geci_data": burrow_geci_data_path,
-        "jm_data": burrow_jm_data_path,
-    }
+    paths = setup_path_with_recorded_data(recorder_data_path)
     obtained_density = get_density_in_recorder_area(paths)
     assert obtained_density == expected_density
 
