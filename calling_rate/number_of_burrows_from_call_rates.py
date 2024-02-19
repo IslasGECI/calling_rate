@@ -63,6 +63,10 @@ class RateCalling_Burrow_Data:
         self.burrow_jm_data = pd.read_csv(paths["jm_data"])
         self.random_state = np.random.default_rng(seed=42)
         self.B = B
+        self.paths = paths
+
+    def get_bootstrapped_number_of_burrows_in_recorder_area(self):
+        return self.get_density_in_recorder_area() * get_recorder_area(self.paths["recorders_data"])
 
     def bootstrapping(self):
         number_samples = len(self.recorded_data)
