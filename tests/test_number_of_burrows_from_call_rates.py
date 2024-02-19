@@ -55,7 +55,6 @@ def test_get_call_rate_in_burrow_area():
 # Calcula el promedio de tasas de vocalización (V) en toda el área (A) de las grabadoras
 def test_get_call_rate_in_recorder_area():
     expected_call_rate = 2.06
-    recorded_data = pd.read_csv(recorder_data_path)
     obtained_call_rate = get_call_rate_in_recorder_area(recorded_data)
     assert pytest.approx(obtained_call_rate, 0.01) == expected_call_rate
 
