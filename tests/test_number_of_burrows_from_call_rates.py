@@ -17,6 +17,7 @@ import pytest
 
 
 recorder_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion.csv"
+new_recorders_path = "tests/data/puntos_grabaciones_estimacion_poblacion_nuevos.csv"
 burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
 burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
 recorded_data = pd.read_csv(recorder_data_path)
@@ -118,7 +119,6 @@ def test_get_number_of_burrows_in_recorder_area():
     obtained_number_of_burrows = get_number_of_burrows_in_recorder_area(paths)
     assert pytest.approx(obtained_number_of_burrows, 0.1) == expected_number_of_burrows
 
-    new_recorders_path = "tests/data/puntos_grabaciones_estimacion_poblacion_nuevos.csv"
     paths = setup_path_with_recorded_data(new_recorders_path)
     obtained_number_of_burrows = get_number_of_burrows_in_recorder_area(paths)
     assert pytest.approx(obtained_number_of_burrows, 0.1) == 350
@@ -131,6 +131,14 @@ def test_get_bootstrapped_number_of_burrows_in_recorder_area():
         ratecalling_burrow_data.get_bootstrapped_number_of_burrows_in_recorder_area()
     )
     expected_number_of_burrows = 83
+    assert obtained_number_of_burrows[1] == pytest.approx(expected_number_of_burrows, 0.01)
+
+    paths = setup_path_with_recorded_data(new_recorders_path)
+    ratecalling_burrow_data = RateCalling_Burrow_Data(paths, B=100)
+    obtained_number_of_burrows = (
+        ratecalling_burrow_data.get_bootstrapped_number_of_burrows_in_recorder_area()
+    )
+    expected_number_of_burrows = 350
     assert obtained_number_of_burrows[1] == pytest.approx(expected_number_of_burrows, 0.01)
 
 
