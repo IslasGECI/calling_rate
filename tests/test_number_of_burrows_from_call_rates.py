@@ -33,7 +33,6 @@ def test_get_density_in_burrow_area():
 # Lee los datos de tasas de vocalización
 def test_get_recorder_coordinates():
     expected_n_recorders = 80
-    recorded_data = pd.read_csv(recorder_data_path)
     obtained_n_recorders = get_recorder_coordinates(recorded_data).shape[0]
     assert obtained_n_recorders == expected_n_recorders
 
@@ -41,11 +40,6 @@ def test_get_recorder_coordinates():
 # Calcula el promedio de tasas de vocalización (v) dentro de la envolvente
 def test_is_inside_burrow_area():
     expected_inside = 10
-    recorded_data = pd.read_csv(recorder_data_path)
-    burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
-    burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
-    burrow_geci_data = pd.read_csv(burrow_geci_data_path)
-    burrow_jm_data = pd.read_csv(burrow_jm_data_path)
     obtained_inside = sum(is_inside_burrow_area(recorded_data, burrow_geci_data, burrow_jm_data))
     assert obtained_inside == expected_inside
 
