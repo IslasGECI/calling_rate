@@ -75,7 +75,7 @@ class RateCalling_Burrow_Data:
         )
 
     def get_density_in_recorder_area(self):
-        interval = np.percentile(
+        interval = np.nanpercentile(
             self.get_distribution_density_in_recorder_area(), [0.05, 0.5, 0.95]
         )
         return interval

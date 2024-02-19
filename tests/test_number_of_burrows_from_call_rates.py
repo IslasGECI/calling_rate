@@ -130,7 +130,7 @@ def test_get_bootstrapped_number_of_burrows_in_recorder_area():
     obtained_number_of_burrows = (
         ratecalling_burrow_data.get_bootstrapped_number_of_burrows_in_recorder_area()
     )
-    expected_number_of_burrows = 66
+    expected_number_of_burrows = 83
     assert obtained_number_of_burrows[1] == pytest.approx(expected_number_of_burrows, 0.01)
 
 
