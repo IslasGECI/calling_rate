@@ -59,10 +59,10 @@ def test_ratecalling_bootstrapping():
     print(ocurrences)
     prob_ocurrences = np.array(list(ocurrences.values())) / len(obtained_ids)
     print(prob_ocurrences)
-    assert_uniform_distribution_probability(prob_ocurrences)
     print(len(obtained_ids))
     print(np.mean(obtained_ids))
     print(np.std(obtained_ids) ** 2)
+    assert_uniform_distribution_probability(prob_ocurrences)
 
 
 def assert_uniform_distribution_probability(prob_ocurrences):
