@@ -33,8 +33,8 @@ def test_get_density_in_burrow_area():
 # Lee los datos de tasas de vocalización
 def test_get_recorder_coordinates():
     expected_n_recorders = 80
-    recorder_data = pd.read_csv(recorder_data_path)
-    obtained_n_recorders = get_recorder_coordinates(recorder_data).shape[0]
+    recorded_data = pd.read_csv(recorder_data_path)
+    obtained_n_recorders = get_recorder_coordinates(recorded_data).shape[0]
     assert obtained_n_recorders == expected_n_recorders
 
 
@@ -61,8 +61,8 @@ def test_get_call_rate_in_burrow_area():
 # Calcula el promedio de tasas de vocalización (V) en toda el área (A) de las grabadoras
 def test_get_call_rate_in_recorder_area():
     expected_call_rate = 2.06
-    recorder_data = pd.read_csv(recorder_data_path)
-    obtained_call_rate = get_call_rate_in_recorder_area(recorder_data)
+    recorded_data = pd.read_csv(recorder_data_path)
+    obtained_call_rate = get_call_rate_in_recorder_area(recorded_data)
     assert pytest.approx(obtained_call_rate, 0.01) == expected_call_rate
 
 
