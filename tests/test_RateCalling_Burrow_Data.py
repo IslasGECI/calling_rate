@@ -1,7 +1,5 @@
 from calling_rate import (
     RateCalling_Burrow_Data,
-    get_call_rate_in_recorder_area,
-    get_call_rate_in_burrow_area,
 )
 
 import numpy as np
