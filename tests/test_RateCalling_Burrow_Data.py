@@ -43,6 +43,7 @@ def assert_have_the_3_interval_elements(obtained):
 
 def test_ratecalling_bootstrapping():
     ratecalling_burrow_data = RateCalling_Burrow_Data(paths)
+    assert ratecalling_burrow_data.B == 2000
     obtained = ratecalling_burrow_data.bootstrapping()
     assert_the_nrow_is_the_same_to_the_original(obtained)
     assert_the_first_id_is_different_to_original_first_id(obtained)
