@@ -19,42 +19,6 @@ paths = {
 B = 100
 
 
-def test_ratecalling_get_recorder_area():
-    ratecalling_burrow_data = RateCalling_Burrow_Data(paths)
-    call_rates_recorder_area = []
-    call_rates_burrow_area = []
-    for i in range(2000):
-        resample = ratecalling_burrow_data.bootstrapping()
-        call_rates_recorder_area.append(get_call_rate_in_recorder_area(resample))
-        call_rates_burrow_area.append(
-            get_call_rate_in_burrow_area(
-                resample,
-                ratecalling_burrow_data.burrow_geci_data,
-                ratecalling_burrow_data.burrow_jm_data,
-            )
-        )
-    quantiles_recorder_area = np.quantile(call_rates_recorder_area, [0.05, 0.5, 0.95])
-    print(quantiles_recorder_area, "Vocalizaciones en recorder area, numerador")
-    quantiles_burrow_area = np.quantile(call_rates_burrow_area, [0.05, 0.5, 0.95])
-    print(quantiles_burrow_area, "Vocalizaciones en burrow area, denominador")
-    print(
-        3.559479030607237e-5 * quantiles_recorder_area / quantiles_burrow_area,
-        "density in recorder area",
-    )
-    print(
-        3.559479030607237e-5 * quantiles_recorder_area / quantiles_burrow_area * 7200000,
-        "number of burrows in recorder area",
-    )
-    print(
-        3.559479030607237e-5 * quantiles_recorder_area[2] / quantiles_burrow_area[0] * 7200000,
-        "max number of burrows in recorder area",
-    )
-    print(
-        3.559479030607237e-5 * quantiles_recorder_area[0] / quantiles_burrow_area[2] * 7200000,
-        "min number of burrows in recorder area",
-    )
-
-
 def test_ratecalling_get_density_in_recorder_area():
     ratecalling_burrow_data = RateCalling_Burrow_Data(paths, B=B)
     obtained = ratecalling_burrow_data.get_density_in_recorder_area()
