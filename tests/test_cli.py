@@ -15,6 +15,7 @@ def tests_cli():
     tt.if_exist_remove(output_path)
     burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
     burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
+    calling_numbers_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion.csv"
     result = runner.invoke(
         cli,
         [
@@ -27,6 +28,8 @@ def tests_cli():
             burrow_geci_data_path,
             "--burrow-jm-data-path",
             burrow_jm_data_path,
+            "--calling-numbers-data-path",
+            calling_numbers_data_path,
         ],
     )
     assert result.exit_code == 0
