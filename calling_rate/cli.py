@@ -12,6 +12,7 @@ def write_initial_population(
     output_path: str = typer.Option(),
     burrow_jm_data_path: str = typer.Option(),
     burrow_geci_data_path: str = typer.Option(),
+    calling_numbers_data_path: str = typer.Option(),
 ):
     dict_to_write = {}
     with open(output_path, "w") as jsonfile:
