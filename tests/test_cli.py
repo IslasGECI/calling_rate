@@ -1,5 +1,5 @@
 from calling_rate import cli
-import test_tools as tt
+import geci_test_tools as tt
 
 from typer.testing import CliRunner
 
