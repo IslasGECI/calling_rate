@@ -14,6 +14,7 @@ def tests_cli():
     output_path = "tests/data/initial_population.json"
     tt.if_exist_remove(output_path)
     burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
+    burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
     result = runner.invoke(
         cli,
         [
@@ -22,6 +23,8 @@ def tests_cli():
             output_path,
             "--bootstrapping-number",
             10,
+            "--burrow-geci-data-path",
+            burrow_geci_data_path,
             "--burrow-jm-data-path",
             burrow_jm_data_path,
         ],
