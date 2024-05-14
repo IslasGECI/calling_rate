@@ -14,7 +14,7 @@ def write_initial_population(
     burrow_geci_data_path: str = typer.Option(),
     calling_numbers_data_path: str = typer.Option(),
 ):
-    dict_to_write = {}
+    dict_to_write = {"b_number": bootstrapping_number}
     with open(output_path, "w") as jsonfile:
         json.dump(dict_to_write, jsonfile)
 
