@@ -14,7 +14,15 @@ def write_initial_population(
     burrow_geci_data_path: str = typer.Option(),
     calling_numbers_data_path: str = typer.Option(),
 ):
-    dict_to_write = {"b_number": bootstrapping_number}
+
+    paths = {
+        "recorders_data": calling_numbers_data_path,
+        "geci_data": burrow_geci_data_path,
+        "jm_data": burrow_jm_data_path,
+    }
+    ratecalling_burrow_data = calling_rate.RateCalling_Burrow_Data(paths, B=bootstrapping_number)
+    interval = ratecalling_burrow_data.get_bootstrapped_number_of_burrows_in_recorder_area()
+    dict_to_write = {"b_number": bootstrapping_number, "intervals": list(interval)}
     with open(output_path, "w") as jsonfile:
         json.dump(dict_to_write, jsonfile)
 

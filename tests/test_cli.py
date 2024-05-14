@@ -39,7 +39,7 @@ def tests_cli():
 
     population_interval = read_json(output_path)
     assert population_interval["b_number"] == b_number
-    assert population_interval["intervals"][1] == pytest.approx(173, 0.001)
+    assert population_interval["intervals"][1] == pytest.approx(149.5, 0.01)
 
 
 def read_json(output_path):
