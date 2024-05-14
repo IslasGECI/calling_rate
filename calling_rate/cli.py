@@ -1,13 +1,18 @@
 import calling_rate
 
 import typer
+import json
 
 cli = typer.Typer(help="Tools to calculate initial population")
 
 
 @cli.command()
-def write_initial_population(bootstrapping_number: int = typer.Option()):
-    pass
+def write_initial_population(
+    bootstrapping_number: int = typer.Option(), output_path: str = typer.Option()
+):
+    dict_to_write = {}
+    with open(output_path, "w") as jsonfile:
+        json.dump(dict_to_write, jsonfile)
 
 
 @cli.command()
