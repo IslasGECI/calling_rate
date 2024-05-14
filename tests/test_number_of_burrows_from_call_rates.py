@@ -126,11 +126,11 @@ def test_get_number_of_burrows_in_recorder_area():
 
 def test_get_bootstrapped_number_of_burrows_in_recorder_area():
     paths = setup_path_with_recorded_data(recorder_data_path)
-    ratecalling_burrow_data = RateCalling_Burrow_Data(paths, B=2000)
+    ratecalling_burrow_data = RateCalling_Burrow_Data(paths, B=100)
     obtained_number_of_burrows = (
         ratecalling_burrow_data.get_bootstrapped_number_of_burrows_in_recorder_area()
     )
-    expected_number_of_burrows = 200
+    expected_number_of_burrows = 173
     assert obtained_number_of_burrows[1] == pytest.approx(expected_number_of_burrows, 0.01)
 
     paths = setup_path_with_recorded_data(new_recorders_path)
