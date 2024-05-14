@@ -2,6 +2,7 @@ from calling_rate import cli
 import geci_test_tools as tt
 
 from typer.testing import CliRunner
+import json
 
 
 runner = CliRunner()
@@ -13,6 +14,7 @@ def tests_cli():
 
     output_path = "tests/data/initial_population.json"
     tt.if_exist_remove(output_path)
+    b_number = 10
     burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
     burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
     calling_numbers_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion.csv"
@@ -23,7 +25,7 @@ def tests_cli():
             "--output-path",
             output_path,
             "--bootstrapping-number",
-            10,
+            b_number,
             "--burrow-geci-data-path",
             burrow_geci_data_path,
             "--burrow-jm-data-path",
@@ -34,3 +36,12 @@ def tests_cli():
     )
     assert result.exit_code == 0
     tt.assert_exist(output_path)
+
+    population_interval = read_json(output_path)
+    assert population_interval["b_number"] == b_number
+
+
+def read_json(output_path):
+    with open(output_path, "r") as read_file:
+        json_content = json.load(read_file)
+    return json_content
