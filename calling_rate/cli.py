@@ -1,7 +1,8 @@
 import calling_rate
 
-import typer
+import inspect
 import json
+import typer
 
 cli = typer.Typer()
 
@@ -22,10 +23,12 @@ def write_initial_population(
     }
     ratecalling_burrow_data = calling_rate.RateCalling_Burrow_Data(paths, B=bootstrapping_number)
     interval = ratecalling_burrow_data.get_bootstrapped_number_of_burrows_in_recorder_area()
+    command_name = inspect.stack()[0][3]
     dict_to_write = {
         "b_number": bootstrapping_number,
         "intervals": list(interval),
         "data_sources": paths,
+        "get": calling_rate.__name__ + ":" + command_name,
     }
     with open(output_path, "w") as jsonfile:
         json.dump(dict_to_write, jsonfile)
