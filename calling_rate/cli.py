@@ -2,6 +2,7 @@ import calling_rate
 
 import inspect
 import json
+import os
 import typer
 
 cli = typer.Typer()
@@ -28,7 +29,11 @@ def write_initial_population(
         "b_number": bootstrapping_number,
         "intervals": list(interval),
         "data_sources": paths,
-        "get": calling_rate.__name__ + ":" + command_name,
+        "get": calling_rate.__name__
+        + "."
+        + os.path.basename(__file__).split(".")[0]
+        + ":"
+        + command_name,
     }
     with open(output_path, "w") as jsonfile:
         json.dump(dict_to_write, jsonfile)
