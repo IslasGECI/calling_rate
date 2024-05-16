@@ -22,3 +22,4 @@ requires-python=">=3.9"
 
 [tool.flit.scripts]
 calling-rates-curator = "calling_rate.curator:curator"
+calling-rate = "calling_rate.cli:cli"

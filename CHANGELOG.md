@@ -14,6 +14,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+## [0.5.0] - 2024-05-16
+
+### Added
+- Add cli `calling-rate` for class 3 repository 
+- Add cli command `write-initial-population`
+
+### Fixed
+- No mutants
+
 ## [0.4.0] - 2024-02-20
 
 ### Added
