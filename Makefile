@@ -74,7 +74,7 @@ setup: clean install
 tests:
 	pytest --verbose
 
-test_real_parameters:
+test_real_parameters: setup
 	calling-rate write-initial-population \
         --output-path \
         tosh_initial_population_2021.json \

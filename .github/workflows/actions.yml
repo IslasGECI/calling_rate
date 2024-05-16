@@ -39,13 +39,10 @@ jobs:
       run: docker push islasgeci/calling_rate:${GITHUB_SHA:0:4}
 
   run-json:
-    needs: actions
     runs-on: ubuntu-latest
     steps:
     - name: Copia repositorio
       uses: actions/checkout@main
-    - name: Install package
-      run: make install
     - name: Write TOSH initial population
       run: make test_real_parameters
     - name: Upload
