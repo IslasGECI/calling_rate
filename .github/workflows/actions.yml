@@ -37,7 +37,37 @@ jobs:
       run: docker push islasgeci/calling_rate:latest
     - name: Sube sha a Docker Hub
       run: docker push islasgeci/calling_rate:${GITHUB_SHA:0:4}
+
+  run-json:
+    needs: actions
+    runs-on: ubuntu-latest
+    env:
+      ouptut_path: tosh_initial_population_2021.json
+    steps:
+    - name: Copia repositorio
+      uses: actions/checkout@main
+    - name: Install package
+      run: make install
+    - name: Write TOSH initial population
+      run: calling-rate write-initial-population \
+        --output-path \
+        ${ouptut_path} \
+        --bootstrapping-number \
+        2000 \
+        --burrow-geci-data-path \
+        tests/data/coordenadas_madrigueras_geci.csv \
+        --burrow-jm-data-path \
+        tests/data/coordenadas_madrigueras_jm.csv \
+        --calling-numbers-data-path \
+        tests/data/puntos_grabaciones_estimacion_poblacion.csv
+    - name: Upload
+      uses: actions/upload-artifact@main
+      with:
+        name: json registry
+        path: ${ouptut_path}
+
   build-n-publish:
+    needs: actions
     name: Build and publish Python 🐍 distributions 📦 to PyPI
     runs-on: ubuntu-latest
     steps:
