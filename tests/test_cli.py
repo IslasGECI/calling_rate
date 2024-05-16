@@ -8,6 +8,10 @@ import pytest
 runner = CliRunner()
 
 
+def tests_cli_version():
+    result = runner.invoke(cli, "version")
+    assert result.stdout == "0.4.0\n"
+
 def tests_cli():
     result = runner.invoke(cli, "--help")
     assert result.exit_code == 0

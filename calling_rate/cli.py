@@ -3,7 +3,7 @@ import calling_rate
 import typer
 import json
 
-cli = typer.Typer(help="Tools to calculate initial population")
+cli = typer.Typer()
 
 
 @cli.command()
