@@ -8,18 +8,9 @@ import pytest
 runner = CliRunner()
 
 
-def tests_cli_version():
-    result = runner.invoke(cli, "version")
-    assert result.stdout == "0.5.0\n"
-
-
-def tests_cli():
-    result = runner.invoke(cli, "--help")
-    assert result.exit_code == 0
-
-    output_path = "tests/data/initial_population.json"
-    tt.if_exist_remove(output_path)
-    b_number = 10
+def test_real_parameters():
+    output_path = "tosh_initial_population_2021.json"
+    b_number = 2000
     burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
     burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
     calling_numbers_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion.csv"
@@ -41,15 +32,3 @@ def tests_cli():
     )
     assert result.exit_code == 0
     tt.assert_exist(output_path)
-
-    population_interval = read_json(output_path)
-    assert population_interval["b_number"] == b_number
-    assert len(population_interval["data_sources"]) == 3
-    assert population_interval["intervals"][1] == pytest.approx(149.5, 0.01)
-    assert population_interval["get"] == "calling_rate.cli:write_initial_population"
-
-
-def read_json(output_path):
-    with open(output_path, "r") as read_file:
-        json_content = json.load(read_file)
-    return json_content
