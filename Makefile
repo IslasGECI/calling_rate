@@ -74,6 +74,19 @@ setup: clean install
 tests:
 	pytest --verbose
 
+test_real_parameters:
+	calling-rate write-initial-population \
+        --output-path \
+        tosh_initial_population_2021.json \
+        --bootstrapping-number \
+        2000 \
+        --burrow-geci-data-path \
+        tests/data/coordenadas_madrigueras_geci.csv \
+        --burrow-jm-data-path \
+        tests/data/coordenadas_madrigueras_jm.csv \
+        --calling-numbers-data-path \
+        tests/data/puntos_grabaciones_estimacion_poblacion.csv
+
 red: format
 	pytest --verbose \
 	&& git restore tests/*.py \

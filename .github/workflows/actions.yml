@@ -41,30 +41,18 @@ jobs:
   run-json:
     needs: actions
     runs-on: ubuntu-latest
-    env:
-      output_path: tosh_initial_population_2021.json
     steps:
     - name: Copia repositorio
       uses: actions/checkout@main
     - name: Install package
       run: make install
     - name: Write TOSH initial population
-      run: calling-rate write-initial-population \
-        --output-path \
-        tosh_initial_population_2021.json \
-        --bootstrapping-number \
-        2000 \
-        --burrow-geci-data-path \
-        tests/data/coordenadas_madrigueras_geci.csv \
-        --burrow-jm-data-path \
-        tests/data/coordenadas_madrigueras_jm.csv \
-        --calling-numbers-data-path \
-        tests/data/puntos_grabaciones_estimacion_poblacion.csv
+      run: make test_real_parameters
     - name: Upload
       uses: actions/upload-artifact@main
       with:
         name: json registry
-        path: $ouptut_path
+        path: tosh_initial_population_2021.json
 
   build-n-publish:
     needs: actions
