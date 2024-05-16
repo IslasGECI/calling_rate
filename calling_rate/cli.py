@@ -29,14 +29,16 @@ def write_initial_population(
         "b_number": bootstrapping_number,
         "intervals": list(interval),
         "data_sources": paths,
-        "get": calling_rate.__name__
-        + "."
-        + os.path.basename(__file__).split(".")[0]
-        + ":"
-        + command_name,
+        "get": get_command_reference(command_name),
     }
     with open(output_path, "w") as jsonfile:
         json.dump(dict_to_write, jsonfile)
+
+
+def get_command_reference(command_name):
+    return (
+        calling_rate.__name__ + "." + os.path.basename(__file__).split(".")[0] + ":" + command_name
+    )
 
 
 @cli.command()
