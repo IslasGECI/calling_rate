@@ -22,7 +22,11 @@ def write_initial_population(
     }
     ratecalling_burrow_data = calling_rate.RateCalling_Burrow_Data(paths, B=bootstrapping_number)
     interval = ratecalling_burrow_data.get_bootstrapped_number_of_burrows_in_recorder_area()
-    dict_to_write = {"b_number": bootstrapping_number, "intervals": list(interval)}
+    dict_to_write = {
+        "b_number": bootstrapping_number,
+        "intervals": list(interval),
+        "data_sources": paths,
+    }
     with open(output_path, "w") as jsonfile:
         json.dump(dict_to_write, jsonfile)
 
