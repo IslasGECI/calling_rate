@@ -42,7 +42,7 @@ jobs:
     needs: actions
     runs-on: ubuntu-latest
     env:
-      ouptut_path: tosh_initial_population_2021.json
+      output_path: tosh_initial_population_2021.json
     steps:
     - name: Copia repositorio
       uses: actions/checkout@main
@@ -51,7 +51,7 @@ jobs:
     - name: Write TOSH initial population
       run: calling-rate write-initial-population \
         --output-path \
-        $ouptut_path \
+        tosh_initial_population_2021.json \
         --bootstrapping-number \
         2000 \
         --burrow-geci-data-path \
