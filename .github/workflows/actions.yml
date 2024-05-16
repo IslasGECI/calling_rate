@@ -51,7 +51,7 @@ jobs:
     - name: Write TOSH initial population
       run: calling-rate write-initial-population \
         --output-path \
-        ${ouptut_path} \
+        $ouptut_path \
         --bootstrapping-number \
         2000 \
         --burrow-geci-data-path \
@@ -64,7 +64,7 @@ jobs:
       uses: actions/upload-artifact@main
       with:
         name: json registry
-        path: ${ouptut_path}
+        path: $ouptut_path
 
   build-n-publish:
     needs: actions
