@@ -20,6 +20,7 @@ recorder_data_path = "tests/data/puntos_grabaciones_estimacion_poblacion.csv"
 new_recorders_path = "tests/data/puntos_grabaciones_estimacion_poblacion_nuevos.csv"
 burrow_geci_data_path = "tests/data/coordenadas_madrigueras_geci.csv"
 burrow_jm_data_path = "tests/data/coordenadas_madrigueras_jm.csv"
+new_recorded_data = pd.read_csv(new_recorders_path)
 recorded_data = pd.read_csv(recorder_data_path)
 burrow_geci_data = pd.read_csv(burrow_geci_data_path)
 burrow_jm_data = pd.read_csv(burrow_jm_data_path)
@@ -61,6 +62,12 @@ def test_get_call_rate_in_burrow_area():
     )
     assert pytest.approx(obtained_call_rate, 0.001) == expected_call_rate
 
+    expected_call_rate = 3.01
+    obtained_call_rate = get_call_rate_in_burrow_area(
+        new_recorded_data, burrow_geci_data, burrow_jm_data
+    )
+    assert pytest.approx(obtained_call_rate, 0.001) == expected_call_rate
+
 
 # Calcula el promedio de tasas de vocalización (V) en toda el área (A) de las grabadoras
 def test_get_call_rate_in_recorder_area():
@@ -68,11 +75,20 @@ def test_get_call_rate_in_recorder_area():
     obtained_call_rate = get_call_rate_in_recorder_area(recorded_data)
     assert pytest.approx(obtained_call_rate, 0.01) == expected_call_rate
 
+    expected_call_rate = 3.875
+    obtained_call_rate = get_call_rate_in_recorder_area(new_recorded_data)
+    assert pytest.approx(obtained_call_rate, 0.01) == expected_call_rate
+
 
 # Calcula densidad (𝚺) promedio para toda el área (A) de las grabadoras (𝚺 = 𝜎·V/v)
 def test_get_density_in_recorder_area():
     expected_density = 2.4316208493973858e-05
     paths = setup_path_with_recorded_data(recorder_data_path)
+    obtained_density = get_density_in_recorder_area(paths)
+    assert obtained_density == expected_density
+
+    expected_density = 4.582733604385474e-05
+    paths = setup_path_with_recorded_data(new_recorders_path)
     obtained_density = get_density_in_recorder_area(paths)
     assert obtained_density == expected_density
 
@@ -104,10 +120,18 @@ def test_get_number_of_recorders():
     obtained_n_recorders = get_number_of_recorders(recorder_data_path)
     assert obtained_n_recorders == expected_n_recorders
 
+    expected_n_recorders = 85
+    obtained_n_recorders = get_number_of_recorders(new_recorders_path)
+    assert obtained_n_recorders == expected_n_recorders
+
 
 def test_get_recorder_area():
     expected_area = 7200000
     obtained_area = get_recorder_area(recorder_data_path)
+    assert obtained_area == expected_area
+
+    expected_area = 7650000
+    obtained_area = get_recorder_area(new_recorders_path)
     assert obtained_area == expected_area
 
 
